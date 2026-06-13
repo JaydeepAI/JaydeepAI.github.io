@@ -102,9 +102,9 @@ export function HeroSection() {
         {/* Social links */}
         <div className="flex items-center justify-center gap-6">
           {[
-            { icon: Github, label: "GitHub", href: "#" },
-            { icon: Linkedin, label: "LinkedIn", href: "#" },
-            { icon: Twitter, label: "Twitter", href: "#" },
+            { icon: Github, label: "GitHub", href: "https://github.com/JaydeepAI" },
+            { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/jaydeepchovatiya/" },
+            { icon: Twitter, label: "Twitter", href: "https://x.com/Jaydeep76208261" },
           ].map(({ icon: Icon, label, href }) => (
             <a
               key={label}
