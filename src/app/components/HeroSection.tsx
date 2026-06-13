@@ -58,14 +58,14 @@ export function HeroSection() {
         </div>
 
         {/* Main heading */}
-        <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold tracking-tight leading-[1.05] mb-6">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.1] mb-6">
           <span className="block text-foreground">QA Automation Engineer</span>
           <span className="block gradient-text">AI Builder</span>
           <span className="block text-foreground">Future Entrepreneur</span>
         </h1>
 
         {/* Subtitle */}
-        <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto mb-4 leading-relaxed">
+        <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground max-w-xl mx-auto mb-4 leading-relaxed">
           Hi, I'm Jaydeep Patel — Training AI Models for public. Currently a QA Automation Engineer, exploring & Building AI Agents, creating digital products, and documenting the journey toward new startups.
         </p>
 
@@ -119,15 +119,15 @@ export function HeroSection() {
     </div>
 
     {/* Right Photo */}
-    <div className="flex justify-center lg:justify-end">
+    <div className="flex justify-center lg:justify-end lg:translate-x-8">
       <div className="relative">
 
-        <div className="absolute -inset-6 bg-gradient-to-r from-violet-600/30 to-blue-600/30 blur-3xl rounded-[40px]" />
+        <div className="absolute -inset-6 bg-gradient-to-r from-violet-600/15 to-blue-600/15 blur-3xl rounded-[40px]" />
 
         <img
           src={jaydeepPhoto}
           alt="Jaydeep Patel"
-          className="relative w-[420px] lg:w-[520px] h-[520px] lg:h-[650px] object-cover rounded-[32px] border border-white/10 shadow-2xl"
+          className="relative w-[420px] lg:w-[520px] h-[520px] lg:h-[650px] object-cover rounded-[32px] border border-white/10 shadow-2xl opacity-80"
         />
 
       </div>
