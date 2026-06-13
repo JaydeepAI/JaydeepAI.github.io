@@ -1,8 +1,8 @@
 import React from "react";
 
 const companies = [
-  "Google", "Microsoft", "Stripe", "Notion", "Vercel", "Figma",
-  "Linear", "Loom", "Atlassian", "Shopify", "Twilio", "Cloudflare",
+  "Selenium", "Java", "TestNG", "Cucumber", "Postman", "Figma",
+  "Jenkins", "GitHub", "JIRA", "Bitbucket", "OpenAI", "Claude", "n8n", "IntelliJ", "Docker",
 ];
 
 export function CompaniesSection() {
@@ -15,7 +15,7 @@ export function CompaniesSection() {
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 mb-10 text-center">
         <p className="text-sm font-medium text-muted-foreground tracking-widest uppercase">
-          Worked with & for companies like
+          Technologies I Work With
         </p>
       </div>
 
