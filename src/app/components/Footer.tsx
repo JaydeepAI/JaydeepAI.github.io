@@ -1,0 +1,140 @@
+import React from "react";
+import { Github, Linkedin, Twitter, Mail, Code2, ArrowUp, Heart } from "lucide-react";
+
+const footerLinks = {
+  Navigation: [
+    { label: "About", href: "#about" },
+    { label: "Expertise", href: "#expertise" },
+    { label: "Portfolio", href: "#portfolio" },
+    { label: "Services", href: "#services" },
+    { label: "Testimonials", href: "#testimonials" },
+    { label: "Contact", href: "#contact" },
+  ],
+  Services: [
+    { label: "Web Development", href: "#services" },
+    { label: "UI/UX Design", href: "#services" },
+    { label: "Mobile Apps", href: "#services" },
+    { label: "Backend & API", href: "#services" },
+    { label: "Consulting", href: "#services" },
+  ],
+  Connect: [
+    { label: "GitHub", href: "#" },
+    { label: "LinkedIn", href: "#" },
+    { label: "Twitter", href: "#" },
+    { label: "Email Me", href: "mailto:hello@digitaljaydeep.com" },
+    { label: "Download CV", href: "#" },
+  ],
+};
+
+const socials = [
+  { icon: Github, label: "GitHub", href: "#" },
+  { icon: Linkedin, label: "LinkedIn", href: "#" },
+  { icon: Twitter, label: "Twitter", href: "#" },
+  { icon: Mail, label: "Email", href: "mailto:hello@digitaljaydeep.com" },
+];
+
+export function Footer() {
+  const scrollTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+
+  const scrollTo = (href: string) => {
+    const el = document.querySelector(href);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+
+  return (
+    <footer className="relative overflow-hidden border-t border-border bg-card/40">
+      {/* Background */}
+      <div className="absolute inset-0 mesh-bg opacity-50 pointer-events-none" />
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-violet-500/40 to-transparent" />
+
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+        {/* Top section */}
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 py-16">
+          {/* Brand */}
+          <div className="lg:col-span-2">
+            <a
+              href="#"
+              onClick={(e) => { e.preventDefault(); scrollTop(); }}
+              className="flex items-center gap-2.5 mb-5 w-fit"
+            >
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-violet-500 to-blue-500 flex items-center justify-center shadow-lg">
+                <Code2 size={18} className="text-white" />
+              </div>
+              <span className="text-lg">
+                <span className="gradient-text font-bold">Digital</span>
+                <span className="text-foreground font-semibold"> Jaydeep</span>
+              </span>
+            </a>
+
+            <p className="text-sm text-muted-foreground leading-relaxed mb-6 max-w-xs">
+              Full-Stack Developer & UI/UX Designer crafting premium digital experiences for forward-thinking companies worldwide.
+            </p>
+
+            {/* Social links */}
+            <div className="flex items-center gap-2">
+              {socials.map(({ icon: Icon, label, href }) => (
+                <a
+                  key={label}
+                  href={href}
+                  aria-label={label}
+                  className="w-9 h-9 rounded-lg glass border border-border flex items-center justify-center text-muted-foreground hover:text-violet-400 hover:border-violet-500/40 transition-all hover:scale-110"
+                >
+                  <Icon size={16} />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Links */}
+          <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-8">
+            {Object.entries(footerLinks).map(([section, links]) => (
+              <div key={section}>
+                <h4 className="text-sm font-bold text-foreground mb-4 uppercase tracking-widest">{section}</h4>
+                <ul className="space-y-2.5">
+                  {links.map((link) => (
+                    <li key={link.label}>
+                      <a
+                        href={link.href}
+                        onClick={(e) => {
+                          if (link.href.startsWith("#") && link.href.length > 1) {
+                            e.preventDefault();
+                            scrollTo(link.href);
+                          }
+                        }}
+                        className="text-sm text-muted-foreground hover:text-violet-400 transition-colors duration-200"
+                      >
+                        {link.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="border-t border-border py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-sm text-muted-foreground flex items-center gap-1.5">
+            Built with{" "}
+            <Heart size={13} className="text-rose-400 fill-rose-400" />
+            {" "}by Jaydeep Patel &copy; {new Date().getFullYear()}
+          </p>
+
+          <div className="flex items-center gap-6">
+            <a href="#" className="text-xs text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</a>
+            <a href="#" className="text-xs text-muted-foreground hover:text-foreground transition-colors">Terms</a>
+          </div>
+
+          <button
+            onClick={scrollTop}
+            className="w-9 h-9 rounded-xl glass border border-border flex items-center justify-center text-muted-foreground hover:text-violet-400 hover:border-violet-500/40 transition-all hover:scale-110"
+            aria-label="Scroll to top"
+          >
+            <ArrowUp size={16} />
+          </button>
+        </div>
+      </div>
+    </footer>
+  );
+}

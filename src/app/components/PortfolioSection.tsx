@@ -1,0 +1,200 @@
+import React, { useState } from "react";
+import { ExternalLink, Github, ArrowRight } from "lucide-react";
+
+const filters = ["All", "Web App", "Mobile", "UI/UX", "Open Source"];
+
+const projects = [
+  {
+    title: "NexaFlow CRM",
+    category: "Web App",
+    desc: "Enterprise CRM platform serving 50K+ businesses. Built with Next.js, real-time sync, and AI-powered insights dashboard.",
+    image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=400&fit=crop&auto=format",
+    tags: ["Next.js", "TypeScript", "PostgreSQL", "AI"],
+    color: "from-violet-500/20 to-purple-600/20",
+    live: "#",
+    github: "#",
+    featured: true,
+  },
+  {
+    title: "TradeVision Pro",
+    category: "Web App",
+    desc: "Real-time trading analytics platform with WebSocket data feeds, custom charting, and portfolio management.",
+    image: "https://images.unsplash.com/photo-1514168757508-07ffe9ae125b?w=600&h=400&fit=crop&auto=format",
+    tags: ["React", "Node.js", "Redis", "WebSockets"],
+    color: "from-blue-500/20 to-cyan-600/20",
+    live: "#",
+    github: "#",
+    featured: true,
+  },
+  {
+    title: "Healthio",
+    category: "Mobile",
+    desc: "AI-powered rural healthcare diagnostic app. First place at SmartIndia Hackathon, deployed across 3 states.",
+    image: "https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?w=600&h=400&fit=crop&auto=format",
+    tags: ["React Native", "Python", "TensorFlow"],
+    color: "from-emerald-500/20 to-teal-600/20",
+    live: "#",
+    github: "#",
+    featured: false,
+  },
+  {
+    title: "DesignOS",
+    category: "UI/UX",
+    desc: "Comprehensive design system and component library used by 200+ designers at TechNova. 40+ components, full Figma kit.",
+    image: "https://images.unsplash.com/photo-1557682250-33bd709cbe85?w=600&h=400&fit=crop&auto=format",
+    tags: ["Figma", "Storybook", "React", "Tailwind"],
+    color: "from-pink-500/20 to-rose-600/20",
+    live: "#",
+    github: "#",
+    featured: false,
+  },
+  {
+    title: "ProductivityHub",
+    category: "Open Source",
+    desc: "Open-source productivity suite with 200K+ users. Task management, time tracking, and team collaboration built-in.",
+    image: "https://images.unsplash.com/photo-1635776063043-ab23b4c226f6?w=600&h=400&fit=crop&auto=format",
+    tags: ["Next.js", "Prisma", "tRPC", "OSS"],
+    color: "from-amber-500/20 to-orange-600/20",
+    live: "#",
+    github: "#",
+    featured: true,
+  },
+  {
+    title: "CloudLaunch CLI",
+    category: "Open Source",
+    desc: "One-command deployment toolkit for Node.js apps to AWS, Vercel, and Railway. 8K+ GitHub stars.",
+    image: "https://images.unsplash.com/photo-1620121692029-d088224ddc74?w=600&h=400&fit=crop&auto=format",
+    tags: ["Node.js", "AWS SDK", "CLI", "OSS"],
+    color: "from-indigo-500/20 to-violet-600/20",
+    live: "#",
+    github: "#",
+    featured: false,
+  },
+];
+
+export function PortfolioSection() {
+  const [activeFilter, setActiveFilter] = useState("All");
+  const [hovered, setHovered] = useState<number | null>(null);
+
+  const filtered = activeFilter === "All"
+    ? projects
+    : projects.filter((p) => p.category === activeFilter);
+
+  return (
+    <section id="portfolio" className="py-24 lg:py-32 relative overflow-hidden">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full opacity-5 dark:opacity-10 blur-3xl bg-gradient-to-r from-violet-600 to-blue-600 pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <div className="h-px w-8 bg-gradient-to-r from-transparent to-violet-500" />
+            <span className="text-violet-400 text-sm font-semibold tracking-widest uppercase">Portfolio</span>
+            <div className="h-px w-8 bg-gradient-to-r from-violet-500 to-transparent" />
+          </div>
+          <h2 className="text-4xl lg:text-5xl font-bold mb-4">
+            Selected <span className="gradient-text">Work</span>
+          </h2>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            A curated selection of projects that showcase my range from product to craft.
+          </p>
+        </div>
+
+        {/* Filters */}
+        <div className="flex flex-wrap justify-center gap-2 mb-12">
+          {filters.map((f) => (
+            <button
+              key={f}
+              onClick={() => setActiveFilter(f)}
+              className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 ${
+                activeFilter === f
+                  ? "bg-gradient-to-r from-violet-500 to-blue-500 text-white shadow-lg shadow-violet-500/25"
+                  : "bg-muted/40 text-muted-foreground hover:text-foreground hover:bg-muted/60 border border-border"
+              }`}
+            >
+              {f}
+            </button>
+          ))}
+        </div>
+
+        {/* Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filtered.map((project, i) => (
+            <div
+              key={project.title}
+              className="group relative rounded-2xl overflow-hidden bg-card/60 glass border border-border card-hover"
+              onMouseEnter={() => setHovered(i)}
+              onMouseLeave={() => setHovered(null)}
+            >
+              {/* Image */}
+              <div className="relative h-48 overflow-hidden bg-muted">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-60`} />
+                <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent" />
+
+                {/* Overlay links */}
+                <div className={`absolute inset-0 flex items-center justify-center gap-3 transition-opacity duration-300 ${hovered === i ? "opacity-100" : "opacity-0"}`}>
+                  <a
+                    href={project.live}
+                    className="w-10 h-10 rounded-xl bg-white/90 flex items-center justify-center text-gray-900 hover:bg-white transition-all hover:scale-110"
+                    aria-label="View live"
+                  >
+                    <ExternalLink size={16} />
+                  </a>
+                  <a
+                    href={project.github}
+                    className="w-10 h-10 rounded-xl bg-white/90 flex items-center justify-center text-gray-900 hover:bg-white transition-all hover:scale-110"
+                    aria-label="View code"
+                  >
+                    <Github size={16} />
+                  </a>
+                </div>
+
+                {project.featured && (
+                  <div className="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-gradient-to-r from-violet-500 to-blue-500 text-white text-xs font-semibold">
+                    Featured
+                  </div>
+                )}
+              </div>
+
+              {/* Content */}
+              <div className="p-5">
+                <div className="flex items-start justify-between mb-2">
+                  <h3 className="text-base font-bold text-foreground">{project.title}</h3>
+                  <span className="text-xs font-medium text-muted-foreground px-2 py-0.5 rounded-md bg-muted/60 border border-border ml-2 flex-shrink-0">
+                    {project.category}
+                  </span>
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4">{project.desc}</p>
+                <div className="flex flex-wrap gap-1.5">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-2 py-0.5 rounded-md bg-violet-500/10 border border-violet-500/20 text-xs font-medium text-violet-400"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div className="text-center mt-12">
+          <a
+            href="#"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-violet-400 hover:text-violet-300 transition-colors group"
+          >
+            View all projects on GitHub
+            <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
