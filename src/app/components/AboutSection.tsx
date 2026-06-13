@@ -5,22 +5,22 @@ const traits = [
   {
     icon: Lightbulb,
     title: "Problem Solver",
-    desc: "I transform complex challenges into elegant, user-centric solutions through thoughtful engineering.",
+    desc: "Breaking down complex testing challenges and creating scalable automation solutions.",
   },
   {
     icon: Target,
     title: "Detail-Oriented",
-    desc: "Pixel-perfect UI, clean code architecture, and thorough testing are non-negotiables for me.",
+    desc: "Focused on quality, reliability, and delivering software users can trust.",
   },
   {
     icon: Rocket,
     title: "Fast Learner",
-    desc: "Staying ahead of the technology curve by continuously exploring emerging tools and frameworks.",
+    desc: "Constantly exploring AI, automation tools, and emerging technologies.",
   },
   {
     icon: Users,
     title: "Team Player",
-    desc: "Strong communicator who thrives in collaborative environments and agile workflows.",
+    desc: "Collaborating with developers, testers, and stakeholders to deliver better products.",
   },
 ];
 
@@ -51,13 +51,13 @@ export function AboutSection() {
               {/* Floating badge: location */}
               <div className="absolute bottom-6 left-6 glass border border-border bg-card/80 rounded-2xl px-4 py-3 flex items-center gap-2">
                 <MapPin size={14} className="text-violet-400" />
-                <span className="text-sm font-medium text-foreground">India 🇮🇳</span>
+                <span className="text-sm font-medium text-foreground">India</span>
               </div>
 
               {/* Floating badge: status */}
               <div className="absolute top-6 right-6 glass border border-emerald-500/30 bg-emerald-500/10 rounded-2xl px-4 py-3 flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-glow" />
-                <span className="text-sm font-medium text-emerald-400">Open to work</span>
+                <span className="text-sm font-medium text-emerald-400">Open to Talk</span>
               </div>
             </div>
 
@@ -68,23 +68,23 @@ export function AboutSection() {
           {/* Right: content */}
           <div className="order-1 lg:order-2">
             <h2 className="text-4xl lg:text-5xl font-bold leading-tight mb-6">
-              I build things for the{" "}
-              <span className="gradient-text">digital world</span>
+              I'm building my journey with{" "}
+              <span className="gradient-text">Automated AI</span>
             </h2>
 
             <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-              I&apos;m Jaydeep Patel, a passionate Full-Stack Developer and UI/UX Designer based in India with over 5 years of experience building scalable web applications and beautiful digital experiences.
+              I'm Jaydeep Patel, a QA Automation Engineer with 4+ years of experience building reliable test automation frameworks and improving software quality across enterprise applications with AI Integration.
             </p>
 
             <p className="text-muted-foreground leading-relaxed mb-10">
-              From crafting pixel-perfect interfaces in Figma to engineering robust backend systems with Node.js and deploying on cloud infrastructure — I own the full product lifecycle. My work has shipped to millions of users across fintech, edtech, and SaaS domains.
+              Today I'm expanding beyond automation into AI, digital products, and training AI Models. 'Digital Jaydeep' is where I document experiments, projects, lessons, and my journey toward entrepreneurship.
             </p>
 
             {/* Quick facts */}
             <div className="flex flex-wrap gap-4 mb-10">
               {[
                 { icon: Coffee, text: "3 coffees/day" },
-                { icon: Zap, text: "Fast delivery" },
+                { icon: Zap, text: "Automation with AI" },
                 { icon: Rocket, text: "Startup mindset" },
               ].map(({ icon: Icon, text }) => (
                 <div key={text} className="flex items-center gap-2 px-3 py-2 rounded-lg bg-muted/40 border border-border text-sm text-muted-foreground">
