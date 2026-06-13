@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { ArrowRight, Download, Sparkles, Github, Linkedin, Twitter } from "lucide-react";
+import jaydeepPhoto from "../../assets/images/jaydeep.png";
 
 export function HeroSection() {
   const scrollTo = (href: string) => {
@@ -44,7 +45,11 @@ export function HeroSection() {
       </div>
 
       {/* Main content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+  <div className="grid lg:grid-cols-2 gap-16 items-center min-h-screen">
+
+    {/* Left Content */}
+    <div>
         {/* Badge */}
         <div className="inline-flex items-center gap-2 glass border border-violet-500/30 bg-violet-500/10 rounded-full px-4 py-2 text-sm font-medium text-violet-400 mb-8">
           <Sparkles size={14} className="animate-glow" />
@@ -54,19 +59,19 @@ export function HeroSection() {
 
         {/* Main heading */}
         <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold tracking-tight leading-[1.05] mb-6">
-          <span className="block text-foreground">Crafting</span>
-          <span className="block gradient-text">Digital</span>
-          <span className="block text-foreground">Experiences</span>
+          <span className="block text-foreground">QA Automation Engineer</span>
+          <span className="block gradient-text">AI Builder</span>
+          <span className="block text-foreground">Future Entrepreneur</span>
         </h1>
 
         {/* Subtitle */}
         <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto mb-4 leading-relaxed">
-          Hi, I&apos;m <span className="text-foreground font-semibold">Jaydeep Patel</span> — Full-Stack Developer & UI/UX Designer building premium products that users love.
+          Hi, I'm Jaydeep Patel — Training AI Models for public. Currently a QA Automation Engineer, exploring & Building AI Agents, creating digital products, and documenting the journey toward new startups.
         </p>
 
         {/* Role tags */}
         <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
-          {["React / Next.js", "Node.js", "UI/UX Design", "TypeScript", "Cloud & DevOps"].map((tag) => (
+          {["QA Automation", "Selenium & Java", "UI/UX Design", "AI Tools & Technology", "AI Models Training"].map((tag) => (
             <span
               key={tag}
               className="px-3 py-1.5 rounded-lg bg-muted/60 border border-border text-xs font-medium text-muted-foreground"
@@ -111,6 +116,24 @@ export function HeroSection() {
             </a>
           ))}
         </div>
+    </div>
+
+    {/* Right Photo */}
+    <div className="flex justify-center lg:justify-end">
+      <div className="relative">
+
+        <div className="absolute -inset-6 bg-gradient-to-r from-violet-600/30 to-blue-600/30 blur-3xl rounded-[40px]" />
+
+        <img
+          src={jaydeepPhoto}
+          alt="Jaydeep Patel"
+          className="relative w-[420px] lg:w-[520px] h-[520px] lg:h-[650px] object-cover rounded-[32px] border border-white/10 shadow-2xl"
+        />
+
+      </div>
+    </div>
+
+  </div>
 
         {/* Scroll cue */}
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground/60">
