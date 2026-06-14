@@ -1,77 +1,81 @@
 import React, { useState } from "react";
 import { ExternalLink, Github, ArrowRight } from "lucide-react";
 
-const filters = ["All", "Web App", "Mobile", "UI/UX", "Open Source"];
+const filters = ["All", "Automation", "AI", "Personal", "Future"];
 
 const projects = [
   {
-    title: "NexaFlow CRM",
-    category: "Web App",
-    desc: "Enterprise CRM platform serving 50K+ businesses. Built with Next.js, real-time sync, and AI-powered insights dashboard.",
-    image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=400&fit=crop&auto=format",
-    tags: ["Next.js", "TypeScript", "PostgreSQL", "AI"],
+    title: "Digital Jaydeep",
+    category: "Personal",
+    desc: "My personal website documenting the journey from QA Automation Engineer to AI Builder and future entrepreneur.",
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=400&fit=crop&auto=format",
+    tags: ["React", "Vite", "GitHub Pages", "TypeScript"],
     color: "from-violet-500/20 to-purple-600/20",
     live: "#",
     github: "#",
     featured: true,
   },
+
   {
-    title: "TradeVision Pro",
-    category: "Web App",
-    desc: "Real-time trading analytics platform with WebSocket data feeds, custom charting, and portfolio management.",
-    image: "https://images.unsplash.com/photo-1514168757508-07ffe9ae125b?w=600&h=400&fit=crop&auto=format",
-    tags: ["React", "Node.js", "Redis", "WebSockets"],
+    title: "Marketplace Automation Framework",
+    category: "Automation",
+    desc: "Automation framework built for enterprise marketplace applications with reusable utilities and scalable test design.",
+    image: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=600&h=400&fit=crop&auto=format",
+    tags: ["Selenium", "Java", "TestNG", "Jenkins"],
     color: "from-blue-500/20 to-cyan-600/20",
     live: "#",
     github: "#",
     featured: true,
   },
+
   {
-    title: "Healthio",
-    category: "Mobile",
-    desc: "AI-powered rural healthcare diagnostic app. First place at SmartIndia Hackathon, deployed across 3 states.",
-    image: "https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?w=600&h=400&fit=crop&auto=format",
-    tags: ["React Native", "Python", "TensorFlow"],
+    title: "AI Experiments Lab",
+    category: "AI",
+    desc: "Collection of AI workflows, prompt engineering experiments, agents, and automation projects.",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop&auto=format",
+    tags: ["OpenAI", "Claude", "n8n", "Agents"],
     color: "from-emerald-500/20 to-teal-600/20",
     live: "#",
     github: "#",
-    featured: false,
+    featured: true,
   },
+
   {
-    title: "DesignOS",
-    category: "UI/UX",
-    desc: "Comprehensive design system and component library used by 200+ designers at TechNova. 40+ components, full Figma kit.",
+    title: "Coming Soon",
+    category: "Future",
+    desc: "Future AI SaaS project currently in planning and research phase.",
     image: "https://images.unsplash.com/photo-1557682250-33bd709cbe85?w=600&h=400&fit=crop&auto=format",
-    tags: ["Figma", "Storybook", "React", "Tailwind"],
+    tags: ["AI SaaS", "Planning"],
     color: "from-pink-500/20 to-rose-600/20",
     live: "#",
     github: "#",
     featured: false,
   },
+
   {
-    title: "ProductivityHub",
-    category: "Open Source",
-    desc: "Open-source productivity suite with 200K+ users. Task management, time tracking, and team collaboration built-in.",
+    title: "Coming Soon",
+    category: "Future",
+    desc: "Chrome extension idea currently under exploration.",
     image: "https://images.unsplash.com/photo-1635776063043-ab23b4c226f6?w=600&h=400&fit=crop&auto=format",
-    tags: ["Next.js", "Prisma", "tRPC", "OSS"],
+    tags: ["Chrome Extension"],
     color: "from-amber-500/20 to-orange-600/20",
     live: "#",
     github: "#",
-    featured: true,
+    featured: false,
   },
+
   {
-    title: "CloudLaunch CLI",
-    category: "Open Source",
-    desc: "One-command deployment toolkit for Node.js apps to AWS, Vercel, and Railway. 8K+ GitHub stars.",
+    title: "Coming Soon",
+    category: "Future",
+    desc: "Future startup project and entrepreneurial venture.",
     image: "https://images.unsplash.com/photo-1620121692029-d088224ddc74?w=600&h=400&fit=crop&auto=format",
-    tags: ["Node.js", "AWS SDK", "CLI", "OSS"],
+    tags: ["Startup"],
     color: "from-indigo-500/20 to-violet-600/20",
     live: "#",
     github: "#",
     featured: false,
   },
 ];
-
 export function PortfolioSection() {
   const [activeFilter, setActiveFilter] = useState("All");
   const [hovered, setHovered] = useState<number | null>(null);
@@ -92,10 +96,10 @@ export function PortfolioSection() {
             <div className="h-px w-8 bg-gradient-to-r from-violet-500 to-transparent" />
           </div>
           <h2 className="text-4xl lg:text-5xl font-bold mb-4">
-            Selected <span className="gradient-text">Work</span>
+            Projects & <span className="gradient-text">Experiments</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            A curated selection of projects that showcase my range from product to craft.
+            Automation projects, AI experiments, and everything I'm building & Training AI models.
           </p>
         </div>
 
@@ -187,7 +191,7 @@ export function PortfolioSection() {
         {/* CTA */}
         <div className="text-center mt-12">
           <a
-            href="#"
+            href="href="https://github.com/JaydeepAI""
             className="inline-flex items-center gap-2 text-sm font-semibold text-violet-400 hover:text-violet-300 transition-colors group"
           >
             View all projects on GitHub
