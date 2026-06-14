@@ -24,6 +24,7 @@ const footerLinks = {
     { label: "LinkedIn", href: "https://www.linkedin.com/in/jaydeepchovatiya/" },
     { label: "Instagram", href: "https://www.instagram.com/jaydeep_chovatiya__" },
     { label: "Email Me", href: "mailto:84jaydeepchovatiya@gmail.com" },
+{ label: "Download My Profile", href: "#download-profile" },
   ],
 };
 
@@ -36,7 +37,9 @@ const socials = [
 
 export function Footer() {
   const scrollTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
-
+const downloadProfile = () => {
+  alert("Digital Profile PDF is Generating");
+};
   const scrollTo = (href: string) => {
     const el = document.querySelector(href);
     if (el) el.scrollIntoView({ behavior: "smooth" });
@@ -99,11 +102,17 @@ export function Footer() {
                       <a
                         href={link.href}
                         onClick={(e) => {
-                          if (link.href.startsWith("#") && link.href.length > 1) {
-                            e.preventDefault();
-                            scrollTo(link.href);
-                          }
-                        }}
+  if (link.href === "#download-profile") {
+    e.preventDefault();
+    downloadProfile();
+    return;
+  }
+
+  if (link.href.startsWith("#") && link.href.length > 1) {
+    e.preventDefault();
+    scrollTo(link.href);
+  }
+}}
                         className="text-sm text-muted-foreground hover:text-violet-400 transition-colors duration-200"
                       >
                         {link.label}

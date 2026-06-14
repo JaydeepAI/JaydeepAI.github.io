@@ -7,6 +7,9 @@ export function HeroSection() {
     const el = document.querySelector(href);
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
+const downloadProfile = () => {
+  alert("Digital Profile PDF is Generating");
+};
 
   return (
     <section
@@ -40,7 +43,7 @@ export function HeroSection() {
       </div>
       <div className="absolute bottom-40 left-8 lg:left-24 glass border border-border bg-card/60 rounded-xl px-4 py-3 text-xs font-mono text-muted-foreground hidden md:block animate-float-slow">
         <span className="text-pink-400">{"<Portfolio"}</span>{" "}
-        <span className="text-cyan-400">v2025</span>
+        <span className="text-cyan-400">v2026</span>
         <span className="text-pink-400">{" />"}</span>
       </div>
 
@@ -91,9 +94,9 @@ export function HeroSection() {
             <ArrowRight size={18} />
           </button>
           <button
-            onClick={() => scrollTo("#contact")}
-            className="gradient-border bg-card/40 glass text-foreground font-semibold px-8 py-4 rounded-2xl flex items-center gap-2 text-base w-full sm:w-auto justify-center hover:bg-card/60 transition-all duration-200"
-          >
+  onClick={downloadProfile}
+  className="gradient-border bg-card/40 glass text-foreground font-semibold px-8 py-4 rounded-2xl flex items-center gap-2 text-base w-full sm:w-auto justify-center hover:bg-card/60 transition-all duration-200"
+>
             <Download size={18} />
             Download CV
           </button>
