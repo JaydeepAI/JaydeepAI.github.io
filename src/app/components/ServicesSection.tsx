@@ -86,10 +86,10 @@ export function ServicesSection() {
             <div className="h-px w-8 bg-gradient-to-r from-violet-500 to-transparent" />
           </div>
           <h2 className="text-4xl lg:text-5xl font-bold mb-4">
-            How We Can <span className="gradient-text"> Work Together</span>
+            Let's <span className="gradient-text"> Work Together</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Open to freelance projects, AI collaborations, automation consulting, networking, and exciting opportunities.
+            Open to full-time opportunities, freelance projects, QA automation consulting, AI collaborations, networking, and meaningful co
           </p>
         </div>
 
