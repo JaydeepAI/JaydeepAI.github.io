@@ -6,21 +6,25 @@ const explorations = [
     icon: Brain,
     title: "AI Agents",
     desc: "Building autonomous workflows using ChatGPT, Claude, MCP, and agentic systems.",
+    link: "https://www.anthropic.com/engineering/building-effective-agents",
   },
   {
     icon: Workflow,
     title: "n8n Automation",
     desc: "Creating end-to-end business automations, integrations, and productivity systems.",
+    link: "https://docs.n8n.io",
   },
   {
     icon: Bot,
     title: "Prompt Engineering",
     desc: "Experimenting with advanced prompting techniques, AI workflows, and reasoning systems.",
+    link: "https://platform.openai.com/docs/guides/prompt-engineering",
   },
   {
     icon: Rocket,
     title: "AI SaaS Ideas",
     desc: "Researching future products, startups, and business opportunities powered by AI.",
+    link: "https://www.ycombinator.com/library",
   },
 ];
 
@@ -58,13 +62,16 @@ export function TestimonialsSection() {
         {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {explorations.map((item) => (
-            <div
-              key={item.title}
-              className="p-6 rounded-2xl bg-card/60 glass border border-border hover:border-violet-500/30 hover:-translate-y-1 transition-all duration-300"
-            >
+            <a
+  key={item.title}
+  href={item.link}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="block p-6 rounded-2xl bg-card/60 glass border border-border hover:border-violet-500/30 hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+>
               <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-violet-500 to-blue-500 flex items-center justify-center mb-4 shadow-lg">
                 <item.icon size={22} className="text-white" />
-              </div>
+              </a>
 
               <h3 className="text-lg font-bold text-foreground mb-3">
                 {item.title}
@@ -75,7 +82,7 @@ export function TestimonialsSection() {
               </p>
 
               <div className="mt-5 flex items-center gap-2 text-violet-400 text-sm font-medium">
-                Learning
+                Explore 
                 <ArrowUpRight size={14} />
               </div>
             </div>
