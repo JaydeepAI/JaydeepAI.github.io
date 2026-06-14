@@ -43,7 +43,7 @@ const projects = [
 
   {
     title: "AI SaaS Project",
-    category: "Upcoming",
+    category: "Under Development",
     desc: "AI SaaS product currently under development and research.",
     image: "https://images.unsplash.com/photo-1557682250-33bd709cbe85?w=600&h=400&fit=crop&auto=format",
     tags: ["AI SaaS", "Planning"],
@@ -55,7 +55,7 @@ const projects = [
 
   {
     title: "Chrome Extension",
-    category: "Upcoming",
+    category: "Under Development",
     desc: "Chrome extension currently under development.",
     image: "https://images.unsplash.com/photo-1635776063043-ab23b4c226f6?w=600&h=400&fit=crop&auto=format",
     tags: ["Chrome Extension"],
@@ -67,7 +67,7 @@ const projects = [
 
   {
     title: "Startup Venture",
-    category: "Upcoming",
+    category: "Under Development",
     desc: "Startup venture currently in planning and development Phase 2.",
     image: "https://images.unsplash.com/photo-1620121692029-d088224ddc74?w=600&h=400&fit=crop&auto=format",
     tags: ["Startup"],
