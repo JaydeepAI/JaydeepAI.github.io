@@ -4,84 +4,82 @@ import { Code2, Palette, Server, Cloud, Database, Smartphone } from "lucide-reac
 const categories = [
   {
     icon: Code2,
-    label: "Frontend",
+    label: "Automation",
     color: "from-violet-500 to-purple-600",
     skills: [
-      { name: "React / Next.js", level: 95 },
-      { name: "TypeScript", level: 90 },
-      { name: "Tailwind CSS", level: 95 },
-      { name: "Vue.js / Nuxt", level: 75 },
-      { name: "Animation / Framer", level: 80 },
+      { name: "Selenium", level: 100 },
+      { name: "Playwright", level: 100 },
+      { name: "Java", level: 100 },
+      { name: "TestNG", level: 100 },
+      { name: "Cucumber", level: 100 },
     ],
   },
   {
     icon: Server,
-    label: "Backend",
+    label: "Testing",
     color: "from-blue-500 to-cyan-600",
     skills: [
-      { name: "Node.js / Express", level: 90 },
-      { name: "Python / FastAPI", level: 80 },
-      { name: "GraphQL", level: 78 },
-      { name: "REST API Design", level: 92 },
-      { name: "Microservices", level: 75 },
+      { name: "Regression Testing", level: 90 },
+      { name: "Functional Testing", level: 90 },
+      { name: "Smoke Testing", level: 95 },
+      { name: "UI Testing", level: 85 },
+      { name: "Cross Browser Testing", level: 80 },
     ],
   },
   {
     icon: Database,
-    label: "Data & DB",
+    label: "API",
     color: "from-emerald-500 to-teal-600",
     skills: [
-      { name: "PostgreSQL", level: 88 },
-      { name: "MongoDB", level: 85 },
-      { name: "Redis", level: 78 },
-      { name: "Prisma / Drizzle", level: 85 },
-      { name: "Data Modeling", level: 80 },
+      { name: "Postman", level: 90 },
+      { name: "REST Assured", level: 85 },
+      { name: "Swagger", level: 80 },
+      { name: "API Automation", level: 85 },
+      { name: "JSON Validation", level: 85 },
     ],
   },
   {
     icon: Cloud,
-    label: "Cloud & DevOps",
+    label: "TechApps",
     color: "from-orange-500 to-amber-600",
     skills: [
-      { name: "AWS (EC2, S3, Lambda)", level: 82 },
-      { name: "Vercel / Railway", level: 95 },
-      { name: "Docker / K8s", level: 75 },
-      { name: "CI/CD Pipelines", level: 80 },
-      { name: "Cloudflare", level: 78 },
+      { name: "Jenkins", level: 85 },
+      { name: "GitHub Actions", level: 75 },
+      { name: "Docker", level: 65 },
+      { name: "Bitbucket Pipelines", level: 80 },
+      { name: "CI/CD", level: 85 },
     ],
   },
   {
     icon: Palette,
-    label: "Design",
+    label: "AI",
     color: "from-pink-500 to-rose-600",
     skills: [
-      { name: "Figma", level: 92 },
-      { name: "UI/UX Design", level: 88 },
-      { name: "Prototyping", level: 85 },
-      { name: "Design Systems", level: 82 },
-      { name: "Brand Identity", level: 70 },
+      { name: "OpenAI", level: 75 },
+      { name: "Claude", level: 75 },
+      { name: "Prompt Engineering", level: 80 },
+      { name: "AI Agents", level: 65 },
+      { name: "RAG Systems", level: 55 },
     ],
   },
   {
     icon: Smartphone,
-    label: "Mobile",
+    label: "Tools",
     color: "from-indigo-500 to-violet-600",
     skills: [
-      { name: "React Native", level: 80 },
-      { name: "Expo", level: 82 },
-      { name: "PWA", level: 88 },
-      { name: "App Store Deploy", level: 75 },
-      { name: "Mobile UI Patterns", level: 85 },
+      { name: "IntelliJ IDEA", level: 90 },
+      { name: "Jira", level: 90 },
+      { name: "Git", level: 85 },
+      { name: "Bitbucket", level: 85 },
+      { name: "n8n", level: 70 },
     ],
   },
 ];
-
 function SkillBar({ name, level, triggered }: { name: string; level: number; triggered: boolean }) {
   return (
     <div className="mb-4 last:mb-0">
       <div className="flex justify-between items-center mb-1.5">
         <span className="text-sm font-medium text-foreground">{name}</span>
-        <span className="text-xs text-muted-foreground">{level}%</span>
       </div>
       <div className="h-1.5 bg-muted rounded-full overflow-hidden">
         <div
@@ -130,7 +128,7 @@ export function ExpertiseSection() {
             My <span className="gradient-text">Technical Stack</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            A comprehensive skill set spanning frontend, backend, cloud infrastructure, and design.
+            Tools, frameworks, and technologies I use to build automation solutions and explore AI.
           </p>
         </div>
 
