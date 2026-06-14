@@ -20,7 +20,7 @@ const projects = [
   {
     title: "Digital Jaydeep",
     category: "Personal",
-    desc: "My personal website documenting the journey from QA Automation Engineer to AI Builder and Upcoming entrepreneur.",
+    desc: "My personal website documenting the journey from QA Automation Engineer to AI Builder and aspiring entrepreneur.",
     image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=400&fit=crop&auto=format",
     tags: ["React", "Vite", "GitHub Pages", "TypeScript"],
     color: "from-violet-500/20 to-purple-600/20",
@@ -86,7 +86,7 @@ export function PortfolioSection() {
         ...projects.filter((p) => p.category === "Personal"),
         ...projects.filter((p) => p.category === "Automation"),
         ...projects.filter((p) => p.category === "AI"),
-        ...projects.filter((p) => p.category === "Upcoming"),
+        ...projects.filter((p) => p.category === "Under Development"),
       ]
     : projects.filter((p) => p.category === activeFilter);
 
