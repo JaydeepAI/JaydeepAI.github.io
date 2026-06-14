@@ -1,4 +1,5 @@
 import React from "react";
+import { jsPDF } from "jspdf";
 import { Github, Linkedin, Mail, Code2, ArrowUp, Instagram } from "lucide-react";
 
 const footerLinks = {
@@ -38,7 +39,108 @@ const socials = [
 export function Footer() {
   const scrollTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 const downloadProfile = () => {
-  alert("Digital Profile PDF is Generating");
+  const doc = new jsPDF();
+
+  // Header
+  doc.setFillColor(20, 20, 35);
+  doc.rect(0, 0, 210, 40, "F");
+
+  doc.setTextColor(255, 255, 255);
+  doc.setFontSize(26);
+  doc.text("Jaydeep Patel", 20, 18);
+
+  doc.setFontSize(12);
+  doc.text(
+    "QA Automation Engineer • AI Builder • Future Entrepreneur",
+    20,
+    28
+  );
+
+  // Reset colors
+  doc.setTextColor(0, 0, 0);
+
+  // About
+  doc.setFontSize(18);
+  doc.text("About", 20, 55);
+
+  doc.setFontSize(11);
+  doc.text(
+    "QA Engineer at Asite with experience in Automation, API Testing,",
+    20,
+    65
+  );
+
+  doc.text(
+    "Regression Testing, AI Tools and Digital Product Exploration.",
+    20,
+    72
+  );
+
+  // Experience
+  doc.setFontSize(18);
+  doc.text("Highlights", 20, 90);
+
+  const highlights = [
+    "950+ bugs identified and reported",
+    "21+ automation scripts developed",
+    "35% regression scope automated",
+    "45+ legacy scripts rebased",
+    "Delivered SPM, ePQQ, MFA, Tender & Reports modules",
+    "Integration, Security & API Testing experience"
+  ];
+
+  let y = 100;
+
+  highlights.forEach((item) => {
+    doc.circle(23, y - 1, 1, "F");
+    doc.text(item, 28, y);
+    y += 8;
+  });
+
+  // Skills
+  doc.setFontSize(18);
+  doc.text("Core Skills", 20, 155);
+
+  doc.setFontSize(11);
+
+  doc.text(
+    "Selenium, Java, Postman, Jenkins, Git, Jira, Groovy,",
+    20,
+    165
+  );
+
+  doc.text(
+    "Regression Testing, Functional Testing, API Testing,",
+    20,
+    172
+  );
+
+  doc.text(
+    "AI Agents, n8n Automation, Prompt Engineering",
+    20,
+    179
+  );
+
+  // Contact
+  doc.setFontSize(18);
+  doc.text("Contact", 20, 205);
+
+  doc.setFontSize(11);
+  doc.text("Email: 84jaydeepchovatiya@gmail.com", 20, 215);
+  doc.text("Phone: +91 94095 77272", 20, 222);
+  doc.text("Location: Ahmedabad, India", 20, 229);
+  doc.text("Website: jaydeepai.github.io", 20, 236);
+
+  // Footer
+  doc.setFontSize(9);
+  doc.setTextColor(120);
+  doc.text(
+    "Generated from Digital Jaydeep",
+    20,
+    285
+  );
+
+  doc.save("Jaydeep-Digital-Profile.pdf");
 };
   const scrollTo = (href: string) => {
     const el = document.querySelector(href);
