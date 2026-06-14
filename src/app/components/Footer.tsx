@@ -1,36 +1,37 @@
 import React from "react";
-import { Github, Linkedin, Twitter, Mail, Code2, ArrowUp, Heart } from "lucide-react";
+import { Github, Linkedin, Mail, Code2, ArrowUp, Instagram } from "lucide-react";
 
 const footerLinks = {
   Navigation: [
     { label: "About", href: "#about" },
     { label: "Expertise", href: "#expertise" },
     { label: "Portfolio", href: "#portfolio" },
-    { label: "Services", href: "#services" },
-    { label: "Testimonials", href: "#testimonials" },
+    { label: "Let's Connect", href: "#services" },
+    { label: "Exploring", href: "#testimonials" },
     { label: "Contact", href: "#contact" },
   ],
-  Services: [
-    { label: "Web Development", href: "#services" },
-    { label: "UI/UX Design", href: "#services" },
-    { label: "Mobile Apps", href: "#services" },
-    { label: "Backend & API", href: "#services" },
-    { label: "Consulting", href: "#services" },
+
+  "Currently Exploring": [
+    { label: "AI Agents", href: "#testimonials" },
+    { label: "n8n Automation", href: "#testimonials" },
+    { label: "Prompt Engineering", href: "#testimonials" },
+    { label: "AI SaaS Ideas", href: "#testimonials" },
+    { label: "MCP & AI Tools", href: "#testimonials" },
   ],
-  Connect: [
-    { label: "GitHub", href: "#" },
-    { label: "LinkedIn", href: "#" },
-    { label: "Twitter", href: "#" },
-    { label: "Email Me", href: "mailto:hello@digitaljaydeep.com" },
-    { label: "Download CV", href: "#" },
+
+  "Find Me Online": [
+    { label: "GitHub", href: "https://github.com/JaydeepAI" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/jaydeepchovatiya/" },
+    { label: "Instagram", href: "https://www.instagram.com/jaydeep_chovatiya__" },
+    { label: "Email Me", href: "mailto:84jaydeepchovatiya@gmail.com" },
   ],
 };
 
 const socials = [
-  { icon: Github, label: "GitHub", href: "#" },
-  { icon: Linkedin, label: "LinkedIn", href: "#" },
-  { icon: Twitter, label: "Twitter", href: "#" },
-  { icon: Mail, label: "Email", href: "mailto:hello@digitaljaydeep.com" },
+  { icon: Github, label: "GitHub", href: "https://github.com/JaydeepAI" },
+  { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/jaydeepchovatiya/" },
+  { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/jaydeep_chovatiya__" },
+  { icon: Mail, label: "Email", href: "mailto:84jaydeepchovatiya@gmail.com" },
 ];
 
 export function Footer() {
@@ -67,15 +68,17 @@ export function Footer() {
             </a>
 
             <p className="text-sm text-muted-foreground leading-relaxed mb-6 max-w-xs">
-              Full-Stack Developer & UI/UX Designer crafting premium digital experiences for forward-thinking companies worldwide.
-            </p>
+  QA Automation Engineer • AI Builder • Future Entrepreneur.
+  Training AI Agents while exploring AI, automation, digital products.
+</p>
 
             {/* Social links */}
             <div className="flex items-center gap-2">
               {socials.map(({ icon: Icon, label, href }) => (
                 <a
                   key={label}
-                  href={href}
+                  href={href}  target="_blank"
+  rel="noopener noreferrer" 
                   aria-label={label}
                   className="w-9 h-9 rounded-lg glass border border-border flex items-center justify-center text-muted-foreground hover:text-violet-400 hover:border-violet-500/40 transition-all hover:scale-110"
                 >
@@ -115,16 +118,11 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-border py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground flex items-center gap-1.5">
-            Built with{" "}
-            <Heart size={13} className="text-rose-400 fill-rose-400" />
-            {" "}by Jaydeep Patel &copy; {new Date().getFullYear()}
-          </p>
+          <p className="text-sm text-muted-foreground">
+  © {new Date().getFullYear()} Digital Jaydeep • Built and designed by Jaydeep Patel
+</p>
 
-          <div className="flex items-center gap-6">
-            <a href="#" className="text-xs text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</a>
-            <a href="#" className="text-xs text-muted-foreground hover:text-foreground transition-colors">Terms</a>
-          </div>
+          <div />
 
           <button
             onClick={scrollTop}
