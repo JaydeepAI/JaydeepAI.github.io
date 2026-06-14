@@ -3,61 +3,45 @@ import { Briefcase, GraduationCap, Award, ChevronDown } from "lucide-react";
 
 const events = [
   {
+    year: "2026",
+    type: "award",
+    title: "Building Digital Jaydeep",
+    org: "Personal Brand & AI Projects",
+    location: "Ahmedabad, India",
+    desc: "Building in public, creating AI experiments, automation workflows, and documenting the journey toward entrepreneurship.",
+    tags: ["OpenAI", "Claude", "n8n", "GitHub Pages"],
+  },
+
+  {
+    year: "2025",
+    type: "work",
+    title: "Exploring AI & Automation",
+    org: "Self Learning Journey",
+    location: "India",
+    desc: "Learning AI tools, prompt engineering, AI agents, and modern automation workflows while sharing progress publicly.",
+    tags: ["AI", "Prompt Engineering", "Agents", "Automation"],
+  },
+
+  {
     year: "2024",
     type: "work",
-    title: "Senior Full-Stack Developer",
-    org: "TechNova Solutions",
-    location: "Remote, USA",
-    desc: "Leading a team of 6 developers building a $10M ARR B2B SaaS platform. Architected a microservices migration that cut infrastructure costs by 35% and improved response times by 60%.",
-    tags: ["Next.js", "AWS", "PostgreSQL", "Kubernetes"],
+    title: "QA Automation Engineer",
+    org: "Asite Solutions",
+    location: "Ahmedabad, India",
+    desc: "Built automation frameworks, improved regression coverage, contributed to enterprise applications, and supported quality delivery.",
+    tags: ["Selenium", "Java", "TestNG", "Jenkins"],
   },
+
   {
     year: "2023",
-    type: "award",
-    title: "Top Developer Award",
-    org: "IndieHackers Community",
-    location: "Online",
-    desc: "Recognized as one of the top 50 indie developers globally for building ProductivityHub, a tool now used by 200K+ users worldwide.",
-    tags: ["Open Source", "Community"],
-  },
-  {
-    year: "2022",
     type: "work",
-    title: "Full-Stack Developer",
-    org: "FinEdge Technologies",
-    location: "Bengaluru, India",
-    desc: "Built a real-time trading dashboard processing 50K+ events/second. Delivered a mobile-first redesign that increased user engagement by 42%.",
-    tags: ["React", "Node.js", "Redis", "WebSockets"],
-  },
-  {
-    year: "2021",
-    type: "work",
-    title: "Frontend Developer",
-    org: "Kreative Studio",
-    location: "Mumbai, India",
-    desc: "Designed and built 30+ landing pages and marketing sites. Introduced component libraries that cut dev time by 50% across projects.",
-    tags: ["React", "Figma", "GSAP", "Tailwind"],
-  },
-  {
-    year: "2020",
-    type: "award",
-    title: "Hackathon Winner — SmartIndia",
-    org: "Ministry of Education, India",
-    location: "New Delhi, India",
-    desc: "First place among 10,000+ participants. Built an AI-powered rural healthcare diagnostic tool deployed across 3 states.",
-    tags: ["AI/ML", "React Native", "Python"],
-  },
-  {
-    year: "2019",
-    type: "edu",
-    title: "B.Tech Computer Science",
-    org: "IIT Bombay",
-    location: "Mumbai, India",
-    desc: "Graduated with honors. Specialization in distributed systems. Published a paper on adaptive load balancing algorithms.",
-    tags: ["CS", "Distributed Systems", "Research"],
+    title: "Started Professional Journey",
+    org: "Asite Solutions",
+    location: "Ahmedabad, India",
+    desc: "Joined Asite as an intern and successfully transitioned into a full-time QA Engineer role.",
+    tags: ["QA", "Testing", "Postman", "Jira"],
   },
 ];
-
 const iconMap = {
   work: Briefcase,
   edu: GraduationCap,
@@ -85,10 +69,10 @@ export function TimelineSection() {
             <div className="h-px w-8 bg-gradient-to-r from-violet-500 to-transparent" />
           </div>
           <h2 className="text-4xl lg:text-5xl font-bold mb-4">
-            My <span className="gradient-text">Career Timeline</span>
+            My <span className="gradient-text">Proffesional Timeline</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            A story of growth, impact, and continuous learning across 5+ years.
+            A story of growth, impact, and continuous learning across 4+ years.
           </p>
         </div>
 
