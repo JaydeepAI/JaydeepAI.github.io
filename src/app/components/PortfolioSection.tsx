@@ -1,13 +1,26 @@
 import React, { useState } from "react";
 import { ExternalLink, Github, ArrowRight } from "lucide-react";
 
-const filters = ["All", "Automation", "AI", "Personal", "Future"];
+const filters = ["All", "Automation", "AI", "Personal", "Under Development"];
 
 const projects = [
+
+{
+    title: "AI Experiments Lab",
+    category: "AI",
+    desc: "Collection of AI workflows, prompt engineering experiments, agents, and automation projects.",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop&auto=format",
+    tags: ["OpenAI", "Claude", "n8n", "Agents"],
+    color: "from-emerald-500/20 to-teal-600/20",
+    live: "",
+    github: "https://github.com/JaydeepAI",
+    featured: true,
+  },
+
   {
     title: "Digital Jaydeep",
     category: "Personal",
-    desc: "My personal website documenting the journey from QA Automation Engineer to AI Builder and future entrepreneur.",
+    desc: "My personal website documenting the journey from QA Automation Engineer to AI Builder and Upcoming entrepreneur.",
     image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=400&fit=crop&auto=format",
     tags: ["React", "Vite", "GitHub Pages", "TypeScript"],
     color: "from-violet-500/20 to-purple-600/20",
@@ -29,21 +42,9 @@ const projects = [
   },
 
   {
-    title: "AI Experiments Lab",
-    category: "AI",
-    desc: "Collection of AI workflows, prompt engineering experiments, agents, and automation projects.",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop&auto=format",
-    tags: ["OpenAI", "Claude", "n8n", "Agents"],
-    color: "from-emerald-500/20 to-teal-600/20",
-    live: "",
-    github: "https://github.com/JaydeepAI",
-    featured: true,
-  },
-
-  {
-    title: "Coming Soon",
-    category: "Future",
-    desc: "Future AI SaaS project currently in planning and research phase.",
+    title: "AI SaaS Project",
+    category: "Upcoming",
+    desc: "AI SaaS product currently under development and research.",
     image: "https://images.unsplash.com/photo-1557682250-33bd709cbe85?w=600&h=400&fit=crop&auto=format",
     tags: ["AI SaaS", "Planning"],
     color: "from-pink-500/20 to-rose-600/20",
@@ -53,9 +54,9 @@ const projects = [
   },
 
   {
-    title: "Coming Soon",
-    category: "Future",
-    desc: "Chrome extension idea currently under exploration.",
+    title: "Chrome Extension",
+    category: "Upcoming",
+    desc: "Chrome extension currently under development.",
     image: "https://images.unsplash.com/photo-1635776063043-ab23b4c226f6?w=600&h=400&fit=crop&auto=format",
     tags: ["Chrome Extension"],
     color: "from-amber-500/20 to-orange-600/20",
@@ -65,9 +66,9 @@ const projects = [
   },
 
   {
-    title: "Coming Soon",
-    category: "Future",
-    desc: "Future startup project and entrepreneurial venture.",
+    title: "Startup Venture",
+    category: "Upcoming",
+    desc: "Startup venture currently in planning and development Phase 2.",
     image: "https://images.unsplash.com/photo-1620121692029-d088224ddc74?w=600&h=400&fit=crop&auto=format",
     tags: ["Startup"],
     color: "from-indigo-500/20 to-violet-600/20",
@@ -81,7 +82,12 @@ export function PortfolioSection() {
   const [hovered, setHovered] = useState<number | null>(null);
 
   const filtered = activeFilter === "All"
-    ? projects
+    ? [
+        ...projects.filter((p) => p.category === "Personal"),
+        ...projects.filter((p) => p.category === "Automation"),
+        ...projects.filter((p) => p.category === "AI"),
+        ...projects.filter((p) => p.category === "Upcoming"),
+      ]
     : projects.filter((p) => p.category === activeFilter);
 
   return (
@@ -124,7 +130,7 @@ export function PortfolioSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filtered.map((project, i) => (
             <div
-              key={project.title}
+              key={`${project.category}-${project.title}-${i}`}
               className="group relative rounded-2xl overflow-hidden bg-card/60 glass border border-border card-hover"
               onMouseEnter={() => setHovered(i)}
               onMouseLeave={() => setHovered(null)}
@@ -143,6 +149,8 @@ export function PortfolioSection() {
                 <div className={`absolute inset-0 flex items-center justify-center gap-3 transition-opacity duration-300 ${hovered === i ? "opacity-100" : "opacity-0"}`}>
                   <a
                     href={project.live}
+target="_blank"
+  rel="noopener noreferrer"
                     className="w-10 h-10 rounded-xl bg-white/90 flex items-center justify-center text-gray-900 hover:bg-white transition-all hover:scale-110"
                     aria-label="View live"
                   >
@@ -150,6 +158,8 @@ export function PortfolioSection() {
                   </a>
                   <a
                     href={project.github}
+target="_blank"
+  rel="noopener noreferrer"
                     className="w-10 h-10 rounded-xl bg-white/90 flex items-center justify-center text-gray-900 hover:bg-white transition-all hover:scale-110"
                     aria-label="View code"
                   >
@@ -191,7 +201,8 @@ export function PortfolioSection() {
         {/* CTA */}
         <div className="text-center mt-12">
           <a
-            href="https://github.com/JaydeepAI"
+            href="https://github.com/JaydeepAI" target="_blank"
+  rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-sm font-semibold text-violet-400 hover:text-violet-300 transition-colors group"
           >
             View all projects on GitHub
