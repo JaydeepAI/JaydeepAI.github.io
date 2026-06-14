@@ -46,7 +46,7 @@ export function HeroSection() {
 
       {/* Main content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-  <div className="grid lg:grid-cols-2 gap-16 items-center min-h-screen">
+  <div className="grid lg:grid-cols-2 gap-16 items-center min-h-screen pt-24 lg:pt-12">
 
     {/* Left Content */}
     <div>
@@ -119,15 +119,15 @@ export function HeroSection() {
     </div>
 
     {/* Right Photo */}
-    <div className="flex justify-center lg:justify-end lg:translate-x-8">
+    <div className="flex justify-center lg:justify-end lg:translate-x-4 mt-8 lg:mt-0">
       <div className="relative">
 
-        <div className="absolute -inset-6 bg-gradient-to-r from-violet-600/15 to-blue-600/15 blur-3xl rounded-[40px]" />
+        <div className="absolute -inset-4 bg-gradient-to-r from-violet-600/8 to-blue-600/8 blur-3xl rounded-[40px]" />
 
         <img
           src={jaydeepPhoto}
           alt="Jaydeep Patel"
-          className="relative w-[420px] lg:w-[520px] h-[520px] lg:h-[650px] object-cover rounded-[32px] border border-white/10 shadow-2xl opacity-80"
+          className="relative w-[340px] lg:w-[420px] h-[420px] lg:h-[520px] object-cover rounded-[32px] border border-white/10 shadow-2xl opacity-80"
         />
 
       </div>
