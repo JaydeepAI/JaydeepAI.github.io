@@ -128,7 +128,7 @@ export function ExpertiseSection() {
             My <span className="gradient-text">Technical Stack</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Tools, frameworks, and technologies I use to build automation solutions and explore AI.
+            Tools, Frameworks & Technologies I use to build automation solutions and explore AI.
           </p>
         </div>
 
