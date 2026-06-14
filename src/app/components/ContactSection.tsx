@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import { Mail, Phone, MapPin, Send, Linkedin, Github, Twitter, CheckCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Linkedin, Github, Instagram, CheckCircle } from "lucide-react";
 
 const contactInfo = [
-  { icon: Mail, label: "Email", value: "hello@digitaljaydeep.com", href: "mailto:hello@digitaljaydeep.com" },
-  { icon: Phone, label: "Phone", value: "+91 98765 43210", href: "tel:+919876543210" },
-  { icon: MapPin, label: "Location", value: "Mumbai, India", href: "#" },
+  { icon: Mail, label: "Email", value: "84jaydeepchovatiya@gmail.com", href: "mailto:84jaydeepchovatiya@gmail.com" },
+  { icon: Phone, label: "Phone", value: "+91 94095 77272", href: "tel:+919409577272" },
+  { icon: MapPin, label: "Location", value: "Ahmedabad, India", href: "https://maps.google.com/?q=Ahmedabad,India" },
 ];
 
 const socials = [
-  { icon: Github, label: "GitHub", href: "#" },
-  { icon: Linkedin, label: "LinkedIn", href: "#" },
-  { icon: Twitter, label: "Twitter", href: "#" },
+  { icon: Github, label: "GitHub", href: "https://github.com/JaydeepAI" },
+  { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/jaydeepchovatiya/" },
+  { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/jaydeep_chovatiya__" },
 ];
 
 export function ContactSection() {
@@ -22,14 +22,47 @@ export function ContactSection() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+  const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  setLoading(true);
+
+  try {
+    const response = await fetch(
+      "https://formsubmit.co/ajax/84jaydeepchovatiya@gmail.com",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          subject: form.subject,
+          discussion: form.budget,
+          message: form.message,
+        }),
+      }
+    );
+
+    if (response.ok) {
       setSubmitted(true);
-    }, 1500);
-  };
+      setForm({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+        budget: "",
+      });
+    }
+  } catch (error) {
+    console.error(error);
+    alert("Something went wrong. Please try again.");
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <section id="contact" className="py-24 lg:py-32 relative overflow-hidden">
@@ -47,7 +80,7 @@ export function ContactSection() {
             Let&apos;s <span className="gradient-text">Work Together</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Have a project in mind? I&apos;d love to hear about it. Send me a message and I&apos;ll get back to you within 24 hours.
+            Looking to collaborate, discuss AI, automation, startups, freelance work, or career opportunities? I'd love to connect.
           </p>
         </div>
 
@@ -58,10 +91,10 @@ export function ContactSection() {
             <div className="p-5 rounded-2xl bg-gradient-to-br from-violet-500/10 to-blue-500/10 border border-violet-500/20">
               <div className="flex items-center gap-2 mb-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-glow" />
-                <span className="text-sm font-semibold text-emerald-400">Available for new projects</span>
+                <span className="text-sm font-semibold text-emerald-400">Open to Opportunities</span>
               </div>
               <p className="text-sm text-muted-foreground">
-                Currently accepting freelance projects and full-time opportunities. Typical response within 12 hours.
+                Open to freelance projects, QA Automation opportunities, AI collaborations, startup discussions, networking, and exciting ideas. Typical response within 12 hours.
               </p>
             </div>
 
@@ -86,7 +119,7 @@ export function ContactSection() {
 
             {/* Socials */}
             <div>
-              <p className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-3">Find me online</p>
+              <p className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-3">Also catch me on...</p>
               <div className="flex items-center gap-3">
                 {socials.map(({ icon: Icon, label, href }) => (
                   <a
@@ -132,7 +165,7 @@ export function ContactSection() {
                         value={form.name}
                         onChange={handleChange}
                         required
-                        placeholder="Priya Sharma"
+                        placeholder="Jay, Recruiter@TechFlow"
                         className="w-full px-4 py-3 rounded-xl bg-muted/40 border border-border text-foreground placeholder-muted-foreground text-sm focus:outline-none focus:ring-2 focus:ring-violet-500/40 focus:border-violet-500/40 transition-all"
                       />
                     </div>
@@ -144,7 +177,7 @@ export function ContactSection() {
                         value={form.email}
                         onChange={handleChange}
                         required
-                        placeholder="priya@company.com"
+                        placeholder="jay@techflow.com"
                         className="w-full px-4 py-3 rounded-xl bg-muted/40 border border-border text-foreground placeholder-muted-foreground text-sm focus:outline-none focus:ring-2 focus:ring-violet-500/40 focus:border-violet-500/40 transition-all"
                       />
                     </div>
@@ -159,24 +192,25 @@ export function ContactSection() {
                         value={form.subject}
                         onChange={handleChange}
                         required
-                        placeholder="Web app development"
+                        placeholder="Wanna discuss an AI Automation Project"
                         className="w-full px-4 py-3 rounded-xl bg-muted/40 border border-border text-foreground placeholder-muted-foreground text-sm focus:outline-none focus:ring-2 focus:ring-violet-500/40 focus:border-violet-500/40 transition-all"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-foreground mb-2">Project Budget</label>
+                      <label className="block text-sm font-semibold text-foreground mb-2">What Brings You Here?</label>
                       <select
                         name="budget"
                         value={form.budget}
                         onChange={handleChange}
                         className="w-full px-4 py-3 rounded-xl bg-muted/40 border border-border text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-violet-500/40 focus:border-violet-500/40 transition-all appearance-none"
                       >
-                        <option value="">Select budget range</option>
-                        <option value="under-1k">Under $1,000</option>
-                        <option value="1k-5k">$1,000 – $5,000</option>
-                        <option value="5k-15k">$5,000 – $15,000</option>
-                        <option value="15k-50k">$15,000 – $50,000</option>
-                        <option value="50k+">$50,000+</option>
+                        <option value="">Select Discussion Point</option>
+                        <option value="job">Full-Time Opportunity</option>
+                        <option value="freelance">Freelance Project</option>
+                        <option value="collaboration">AI Collaboration</option>
+                        <option value="startup">Startup Discussion</option>
+                        <option value="networking">Networking / Coffee Chat</option>
+                        <option value="other">Other</option>
                       </select>
                     </div>
                   </div>
@@ -189,7 +223,7 @@ export function ContactSection() {
                       onChange={handleChange}
                       required
                       rows={5}
-                      placeholder="Tell me about your project — what you're building, what you need, and your timeline..."
+                      placeholder="Tell me the exciting part..."
                       className="w-full px-4 py-3 rounded-xl bg-muted/40 border border-border text-foreground placeholder-muted-foreground text-sm focus:outline-none focus:ring-2 focus:ring-violet-500/40 focus:border-violet-500/40 transition-all resize-none"
                     />
                   </div>

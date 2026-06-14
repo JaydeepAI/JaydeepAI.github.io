@@ -71,7 +71,7 @@ export function TestimonialsSection() {
 >
               <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-violet-500 to-blue-500 flex items-center justify-center mb-4 shadow-lg">
                 <item.icon size={22} className="text-white" />
-              </a>
+              </div>
 
               <h3 className="text-lg font-bold text-foreground mb-3">
                 {item.title}
@@ -85,7 +85,7 @@ export function TestimonialsSection() {
                 Explore 
                 <ArrowUpRight size={14} />
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>
