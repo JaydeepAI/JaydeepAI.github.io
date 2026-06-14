@@ -1,89 +1,64 @@
 import React, { useState } from "react";
-import { Monitor, Server, Palette, Smartphone, Zap, Shield, ArrowRight, Check } from "lucide-react";
+import { Bot, Briefcase, Users, Rocket, ArrowRight, Check } from "lucide-react";
 
 const services = [
   {
-    icon: Monitor,
-    title: "Web Development",
-    price: "From $2,500",
+    icon: Briefcase,
+    title: "QA Automation",
+    price: "Open",
     color: "from-violet-500 to-purple-600",
-    desc: "Full-stack web applications built with modern tech. From MVPs to enterprise platforms.",
+    desc: "Helping teams build scalable automation frameworks and improve software quality.",
     features: [
-      "React / Next.js frontend",
-      "Node.js / Python backend",
-      "Database design & optimization",
-      "SEO & performance tuning",
-      "3 rounds of revisions",
+      "Selenium & Java Automation",
+      "Framework Design",
+      "CI/CD Integration",
+      "Regression Automation",
+      "Quality Engineering",
     ],
   },
+
   {
-    icon: Palette,
-    title: "UI/UX Design",
-    price: "From $1,500",
-    color: "from-pink-500 to-rose-600",
-    desc: "User-centered design that converts visitors into customers and keeps them coming back.",
-    features: [
-      "User research & wireframing",
-      "High-fidelity Figma designs",
-      "Design system & component kit",
-      "Interactive prototyping",
-      "Handoff-ready assets",
-    ],
-  },
-  {
-    icon: Smartphone,
-    title: "Mobile Development",
-    price: "From $3,000",
+    icon: Bot,
+    title: "AI Automation",
+    price: "Collaboration",
     color: "from-blue-500 to-cyan-600",
-    desc: "Cross-platform mobile apps using React Native — one codebase, two stores.",
+    desc: "Exploring AI agents, workflows, prompt engineering and automation systems.",
     features: [
-      "iOS & Android deployment",
-      "Offline-first architecture",
-      "Push notifications",
-      "App store optimization",
-      "12-month support plan",
+      "Prompt Engineering",
+      "AI Agents",
+      "n8n Workflows",
+      "Automation Systems",
+      "AI Experimentation",
     ],
   },
+
   {
-    icon: Server,
-    title: "Backend & API",
-    price: "From $2,000",
-    color: "from-emerald-500 to-teal-600",
-    desc: "Scalable, secure backend systems and APIs that grow with your business.",
-    features: [
-      "RESTful & GraphQL APIs",
-      "Authentication & authorization",
-      "Database architecture",
-      "Third-party integrations",
-      "API documentation",
-    ],
-  },
-  {
-    icon: Zap,
-    title: "Performance Audit",
-    price: "From $800",
+    icon: Rocket,
+    title: "Freelance Projects",
+    price: "Available",
     color: "from-amber-500 to-orange-600",
-    desc: "Identify and fix performance bottlenecks in your existing product. Fast.",
+    desc: "Available for freelance, contract-based and short-term technical engagements.",
     features: [
-      "Core Web Vitals audit",
-      "Bundle & render analysis",
-      "Database query tuning",
-      "CDN & caching strategy",
-      "Written report + fixes",
+      "QA Automation Projects",
+      "Framework Development",
+      "Technical Problem Solving",
+      "Project Support",
+      "Short-Term Engagements",
     ],
   },
+
   {
-    icon: Shield,
-    title: "Technical Consulting",
-    price: "$200/hr",
+    icon: Users,
+    title: "Networking & Opportunities",
+    price: "Let's Connect",
     color: "from-indigo-500 to-violet-600",
-    desc: "Expert guidance on architecture decisions, tech stack selection, and team mentoring.",
+    desc: "Open to meaningful conversations, collaborations and future opportunities.",
     features: [
-      "Architecture review",
-      "Tech stack advisory",
-      "Code review sessions",
-      "Team mentoring",
-      "Async Slack support",
+      "Full-Time Roles",
+      "Part-Time Opportunities",
+      "Startup Discussions",
+      "Tech Meetups",
+      "Knowledge Sharing",
     ],
   },
 ];
@@ -105,18 +80,20 @@ export function ServicesSection() {
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="h-px w-8 bg-gradient-to-r from-transparent to-violet-500" />
-            <span className="text-violet-400 text-sm font-semibold tracking-widest uppercase">Services</span>
+           <span className="text-violet-400 text-sm font-semibold tracking-widest uppercase">
+  Collaboration
+</span>
             <div className="h-px w-8 bg-gradient-to-r from-violet-500 to-transparent" />
           </div>
           <h2 className="text-4xl lg:text-5xl font-bold mb-4">
-            What I <span className="gradient-text">Offer</span>
+            How We Can <span className="gradient-text"> Work Together</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            End-to-end digital services tailored for startups, scale-ups, and enterprise teams.
+            Open to freelance projects, AI collaborations, automation consulting, networking, and exciting opportunities.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
           {services.map((service, i) => (
             <div
               key={service.title}
@@ -159,7 +136,7 @@ export function ServicesSection() {
                 onClick={() => scrollTo("#contact")}
                 className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl border border-violet-500/30 text-violet-400 text-sm font-semibold hover:bg-violet-500/10 transition-all duration-200 group"
               >
-                Get Started
+                Let's Connect
                 <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
               </button>
             </div>
