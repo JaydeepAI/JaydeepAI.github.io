@@ -191,7 +191,7 @@ export function PortfolioSection() {
         {/* CTA */}
         <div className="text-center mt-12">
           <a
-            href="href="https://github.com/JaydeepAI""
+            href="https://github.com/JaydeepAI"
             className="inline-flex items-center gap-2 text-sm font-semibold text-violet-400 hover:text-violet-300 transition-colors group"
           >
             View all projects on GitHub
