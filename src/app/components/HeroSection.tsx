@@ -170,7 +170,7 @@ const downloadProfile = () => {
 
         {/* Subtitle */}
         <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground max-w-xl mx-auto mb-4 leading-relaxed">
-          Hi, I'm Jaydeep Patel —  Currently a QA Automation Engineer, exploring Training AI Models and documenting the journey toward new Era.
+          Hi, I'm Jaydeep Patel — currently working as a QA Automation Engineer, leveraging AI to enhance productivity, streamline workflows, and build smarter automation solutions.
         </p>
 
         {/* Role tags */}
