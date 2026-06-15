@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X, Moon, Sun, Code2 } from "lucide-react";
-
+import { useNavigate } from "react-router-dom";
 interface HeaderProps {
   darkMode: boolean;
   setDarkMode: (v: boolean) => void;
@@ -12,6 +12,7 @@ const navLinks = [
   { label: "Portfolio", href: "#portfolio" },
   { label: "Let's Connect", href: "#services" },
   { label: "Exploring", href: "#testimonials" },
+  { label: "Achievements", href: "/achievements" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -19,6 +20,7 @@ export function Header({ darkMode, setDarkMode }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -39,11 +41,17 @@ export function Header({ darkMode, setDarkMode }: HeaderProps) {
     return () => observer.disconnect();
   }, []);
 
-  const scrollTo = (href: string) => {
-    setMenuOpen(false);
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-  };
+ const scrollTo = (href: string) => {
+setMenuOpen(false);
+
+if (href === "/achievements") {
+navigate("/achievements");
+return;
+}
+
+const el = document.querySelector(href);
+if (el) el.scrollIntoView({ behavior: "smooth" });
+};
 
   return (
     <header

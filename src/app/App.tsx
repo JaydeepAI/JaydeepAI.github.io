@@ -6,6 +6,8 @@ import { AboutSection } from "./components/AboutSection";
 import { CompaniesSection } from "./components/CompaniesSection";
 import { ExpertiseSection } from "./components/ExpertiseSection";
 import { TimelineSection } from "./components/TimelineSection";
+import Achievements from "../pages/Achievements";
+import { Routes, Route } from "react-router-dom";
 import { PortfolioSection } from "./components/PortfolioSection";
 import { ServicesSection } from "./components/ServicesSection";
 import { TestimonialsSection } from "./components/TestimonialsSection";
@@ -29,6 +31,10 @@ export default function App() {
   }, [darkMode]);
 
   return (
+  <Routes>
+    <Route
+path="/"
+element={
     <div
       className="min-h-screen bg-background text-foreground overflow-x-hidden"
       style={{ fontFamily: "'Poppins', sans-serif" }}
@@ -188,7 +194,16 @@ export default function App() {
         <TestimonialsSection />
         <ContactSection />
       </main>
+
       <Footer />
     </div>
-  );
+      }
+    />
+
+    <Route
+      path="/achievements"
+      element={<Achievements />}
+    />
+  </Routes>
+);
 }
