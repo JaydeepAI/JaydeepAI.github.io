@@ -21,7 +21,7 @@ const downloadProfile = () => {
 
   doc.setFontSize(12);
   doc.text(
-    "QA Automation Engineer • AI Builder • Future Entrepreneur",
+    "QA Automation Engineer Enhaced with AI",
     20,
     28
   );
@@ -164,18 +164,18 @@ const downloadProfile = () => {
         {/* Main heading */}
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.1] mb-6">
           <span className="block text-foreground">QA Automation Engineer</span>
-          <span className="block gradient-text">AI Builder</span>
-          <span className="block text-foreground">Future Entrepreneur</span>
+          <span className="block gradient-text">Enhanced with AI</span>
+        
         </h1>
 
         {/* Subtitle */}
         <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground max-w-xl mx-auto mb-4 leading-relaxed">
-          Hi, I'm Jaydeep Patel — Training AI Models for public. Currently a QA Automation Engineer, exploring & Building AI Agents, creating digital products, and documenting the journey toward new startups.
+          Hi, I'm Jaydeep Patel —  Currently a QA Automation Engineer, exploring Training AI Models and documenting the journey toward new Era.
         </p>
 
         {/* Role tags */}
         <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
-          {["QA Automation", "Selenium & Java", "UI/UX Design", "AI Tools & Technology", "AI Models Training"].map((tag) => (
+          {["QA Automation", "Selenium & Java", "Web Design & Testing", "AI Tools & Technology", "AI Models Training"].map((tag) => (
             <span
               key={tag}
               className="px-3 py-1.5 rounded-lg bg-muted/60 border border-border text-xs font-medium text-muted-foreground"
