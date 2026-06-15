@@ -16,6 +16,7 @@ export default function Achievements() {
     "/certificates/certificate-ktpyog5vvadm-1781029060.pdf",
     "/certificates/certificate-7w2b2qbrzjzf-1781028736.pdf",
     "/certificates/certificate-eg2oz2fq3dcc-1781246522.pdf",
+    "/certificates/certificate-tu6pdoyouwya-1781547843.pdf",
   ];
 
   const isPdf = (file: string) =>
