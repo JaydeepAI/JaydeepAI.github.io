@@ -335,13 +335,13 @@ When invoked:
 ];
 
 const comparisonTable = [
-  { feature: "CLAUDE.md", what: "Always-on instructions & context", when: "Every session, team-shared", scope: "Session-global" },
-  { feature: "Skills", what: "On-demand procedural guides", when: "Complex multi-step workflows", scope: "Pulled when task matches" },
-  { feature: "Commands", what: "Custom /slash shortcuts + args", when: "Repetitive, parameterized tasks", scope: "User-triggered" },
-  { feature: "Subagents", what: "Isolated assistants, scoped tools", when: "Reviews, parallel analysis", scope: "Delegated sub-task" },
-  { feature: "Hooks", what: "Shell cmds on lifecycle events", when: "Auto-format, lint, block writes", scope: "Guaranteed on events" },
-  { feature: "MCP Server", what: "External tools & live data", when: "APIs, design tools, databases", scope: "Tool calls" },
-  { feature: "Plugins", what: "Bundle: all features in one pkg", when: "Team onboarding & sharing", scope: "Install once" },
+  { id: "claude-md", feature: "CLAUDE.md", what: "Always-on instructions & context", when: "Every session, team-shared", scope: "Session-global" },
+  { id: "skills", feature: "Skills", what: "On-demand procedural guides", when: "Complex multi-step workflows", scope: "Pulled when task matches" },
+  { id: "commands", feature: "Commands", what: "Custom /slash shortcuts + args", when: "Repetitive, parameterized tasks", scope: "User-triggered" },
+  { id: "subagents", feature: "Subagents", what: "Isolated assistants, scoped tools", when: "Reviews, parallel analysis", scope: "Delegated sub-task" },
+  { id: "hooks", feature: "Hooks", what: "Shell cmds on lifecycle events", when: "Auto-format, lint, block writes", scope: "Guaranteed on events" },
+  { id: "mcp", feature: "MCP Server", what: "External tools & live data", when: "APIs, design tools, databases", scope: "Tool calls" },
+  { id: "plugins", feature: "Plugins", what: "Bundle: all features in one pkg", when: "Team onboarding & sharing", scope: "Install once" },
 ];
 
 // ─── Component ───────────────────────────────────────────────────────────────
@@ -356,6 +356,23 @@ export default function ClaudeCodeFeaturesBlog() {
     ogImage: "https://jaydeepai.github.io/og-claude-code.png",
     canonicalUrl: "https://jaydeepai.github.io/blog/claude-code-features",
   });
+
+  // Enable smooth scroll behavior
+  useEffect(() => {
+    document.documentElement.style.scrollBehavior = "smooth";
+    return () => {
+      document.documentElement.style.scrollBehavior = "auto";
+    };
+  }, []);
+
+  // Handle smooth scroll to sections
+  const handleScrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+    e.preventDefault();
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   return (
     <div className="min-h-screen bg-[#050816] text-white font-sans">
@@ -400,7 +417,8 @@ export default function ClaudeCodeFeaturesBlog() {
               <li key={f.id}>
                 <a
                   href={`#${f.id}`}
-                  className="flex items-center gap-3 text-sm text-gray-300 hover:text-white transition-colors group"
+                  onClick={(e) => handleScrollToSection(e, f.id)}
+                  className="flex items-center gap-3 text-sm text-gray-300 hover:text-white transition-colors group cursor-pointer"
                 >
                   <span className="w-6 h-6 rounded-md bg-white/5 flex items-center justify-center text-xs font-mono text-gray-500 group-hover:text-white transition-colors">
                     {String(i + 1).padStart(2, "0")}
@@ -410,7 +428,7 @@ export default function ClaudeCodeFeaturesBlog() {
               </li>
             ))}
             <li>
-              <a href="#comparison" className="flex items-center gap-3 text-sm text-gray-300 hover:text-white transition-colors group">
+              <a href="#comparison" onClick={(e) => handleScrollToSection(e, "comparison")} className="flex items-center gap-3 text-sm text-gray-300 hover:text-white transition-colors group cursor-pointer">
                 <span className="w-6 h-6 rounded-md bg-white/5 flex items-center justify-center text-xs font-mono text-gray-500 group-hover:text-white">09</span>
                 <span className="group-hover:underline underline-offset-2">When to Use What — Comparison Table</span>
               </a>
@@ -529,7 +547,11 @@ export default function ClaudeCodeFeaturesBlog() {
                   className={`border-b border-white/5 hover:bg-white/5 transition-colors ${i % 2 === 0 ? "bg-white/2" : ""}`}
                 >
                   <td className="px-4 py-3">
-                    <a href={`#${row.feature.toLowerCase().replace(/\s/g, "-").replace(/\./g, "")}`} className="text-blue-400 font-semibold hover:underline">
+                    <a 
+                      href={`#${row.id}`}
+                      onClick={(e) => handleScrollToSection(e, row.id)}
+                      className="text-blue-400 font-semibold hover:underline cursor-pointer"
+                    >
                       {row.feature}
                     </a>
                   </td>
@@ -560,7 +582,9 @@ export default function ClaudeCodeFeaturesBlog() {
               Get in Touch
             </a>
             <a
-              href="/#portfolio"
+              href="https://github.com/JaydeepAI"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-6 py-3 rounded-xl border border-white/20 text-white font-semibold hover:bg-white/5 transition-colors"
             >
               See My Projects
