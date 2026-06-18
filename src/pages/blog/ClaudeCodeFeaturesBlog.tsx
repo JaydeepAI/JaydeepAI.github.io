@@ -576,7 +576,7 @@ export default function ClaudeCodeFeaturesBlog() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a
-              href="https://jaydeepai.github.io/"
+              href="https://jaydeepai.github.io/#/"
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold hover:opacity-90 transition-opacity"
