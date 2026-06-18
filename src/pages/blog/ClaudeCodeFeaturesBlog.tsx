@@ -354,7 +354,7 @@ export default function ClaudeCodeFeaturesBlog() {
     keywords:
       "Claude Code, CLAUDE.md, Claude AI features, MCP Server, Subagents, AI development, Anthropic, Claude skills, AI automation, software engineering AI, claude code tutorial, claude code features 2025",
     ogImage: "https://jaydeepai.github.io/og-claude-code.png",
-    canonicalUrl: "https://jaydeepai.github.io/blog/claude-code-features",
+    canonicalUrl: "https://jaydeepai.github.io/#/blog/claude-code-features",
   });
 
   // Enable smooth scroll behavior
