@@ -15,6 +15,8 @@ import { ContactSection } from "./components/ContactSection";
 import { Footer } from "./components/Footer";
 import BlogIndex from "../pages/blog/BlogIndex";
 import ClaudeCodeFeaturesBlog from "../pages/blog/ClaudeCodeFeaturesBlog";
+import AIStackBlog from "../pages/blog/AIStackBlog";
+
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(true);
@@ -204,6 +206,7 @@ export default function App() {
       <Route path="/achievements" element={<Achievements />} />
       <Route path="/blog" element={<BlogIndex />} />
       <Route path="/blog/claude-code-features" element={<ClaudeCodeFeaturesBlog />} />
+      <Route path="/blog/ai-coding-stack" element={<AIStackBlog />} />
     </Routes>
   );
 }

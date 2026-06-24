@@ -2,6 +2,17 @@ import { useNavigate } from "react-router-dom";
 
 export const blogPosts = [
   {
+    slug: "ai-coding-stack",
+    title: "Claude Code vs Cursor vs GitHub Copilot: Understanding the New AI Coding Stack",
+    excerpt:
+      "Most developers are asking the wrong question. It's not which AI tool is best — it's what layer of software development each tool optimizes. A deep-dive into the three tools defining the new era.",
+    date: "June 24, 2025",
+    readTime: "18 min",
+    tags: ["Claude Code", "Cursor", "GitHub Copilot", "AI Strategy"],
+    category: "AI Strategy",
+    emoji: "🏗️",
+  },
+  {
     slug: "claude-code-features",
     title: "Claude Code: Every AI Feature Explained",
     excerpt:
@@ -20,7 +31,6 @@ export default function BlogIndex() {
   return (
     <div className="min-h-screen bg-[#050816] text-white px-6 pt-24 pb-24">
       <div className="max-w-4xl mx-auto">
-        {/* Header */}
         <div className="mb-14 text-center">
           <span className="inline-block mb-4 px-3 py-1 text-xs font-semibold tracking-widest uppercase rounded-full border border-blue-500/40 text-blue-400 bg-blue-500/10">
             Digital Jaydeep · Blog
@@ -33,7 +43,6 @@ export default function BlogIndex() {
           </p>
         </div>
 
-        {/* Post List */}
         <div className="space-y-6">
           {blogPosts.map((post) => (
             <div
@@ -57,10 +66,7 @@ export default function BlogIndex() {
                   <p className="text-gray-400 text-sm leading-relaxed mb-4">{post.excerpt}</p>
                   <div className="flex flex-wrap gap-2">
                     {post.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-xs px-2 py-0.5 rounded-full border border-white/10 bg-white/5 text-gray-500"
-                      >
+                      <span key={tag} className="text-xs px-2 py-0.5 rounded-full border border-white/10 bg-white/5 text-gray-500">
                         #{tag.replace(/\s/g, "")}
                       </span>
                     ))}
