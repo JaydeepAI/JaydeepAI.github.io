@@ -2,7 +2,8 @@ import { defineConfig } from 'vite'
 import path from 'path'
 import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
-
+import sitemap from 'vite-plugin-sitemap'
+import { blogPosts } from './src/data/blogs'
 
 function figmaAssetResolver() {
   return {
@@ -16,6 +17,13 @@ function figmaAssetResolver() {
   }
 }
 
+const routes = [
+  '/',
+  '/blog',
+  '/achievements',
+  ...blogPosts.map((post) => `/blog/${post.slug}`),
+]
+
 export default defineConfig({
   base: "/",
   plugins: [
@@ -24,6 +32,13 @@ export default defineConfig({
     // Tailwind is not being actively used – do not remove them
     react(),
     tailwindcss(),
+    sitemap({
+      hostname: 'https://jaydeepai.github.io',
+      outDir: 'dist',
+      dynamicRoutes: routes,
+      changefreq: 'weekly',
+      priority: 0.7,
+    }),
   ],
   resolve: {
     alias: {
