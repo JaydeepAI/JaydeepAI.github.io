@@ -16,6 +16,7 @@ import { Footer } from "./components/Footer";
 import BlogIndex from "../pages/blog/BlogIndex";
 import ClaudeCodeFeaturesBlog from "../pages/blog/ClaudeCodeFeaturesBlog";
 import AIStackBlog from "../pages/blog/AIStackBlog";
+import AgenticAIBlog from "../pages/blog/AgenticAIBlog";
 
 
 export default function App() {
@@ -207,6 +208,7 @@ export default function App() {
       <Route path="/blog" element={<BlogIndex />} />
       <Route path="/blog/claude-code-features" element={<ClaudeCodeFeaturesBlog />} />
       <Route path="/blog/ai-coding-stack" element={<AIStackBlog />} />
+      <Route path="/blog/governing-agentic-ai" element={<AgenticAIBlog />} />
     </Routes>
   );
 }

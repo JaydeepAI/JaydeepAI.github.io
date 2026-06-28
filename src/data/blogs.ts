@@ -1,5 +1,16 @@
 export const blogPosts = [
   {
+    slug: "governing-agentic-ai",
+    title: "Governing Agentic AI: Workflows, Orchestration, and Integration Frameworks",
+    excerpt:
+      "How enterprise teams balance autonomous reasoning with deterministic control — hybrid architectures, MCP, human-in-the-loop governance, and security frameworks.",
+    date: "June 28, 2026",
+    readTime: "18 min",
+    tags: ["AI Architecture", "Agentic AI", "Governance", "Automation"],
+    category: "AI Architecture",
+    emoji: "🧠",
+  },
+  {
     slug: "ai-coding-stack",
     title: "Claude Code vs Cursor vs GitHub Copilot: Understanding the New AI Coding Stack",
     excerpt:
