@@ -17,7 +17,6 @@ const projects = [
     featured: true,
   },
 
-  
   {
     title: "Digital Jaydeep",
     category: "Personal",
