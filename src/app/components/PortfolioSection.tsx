@@ -20,7 +20,7 @@ const projects = [
   {
     title: "Digital Jaydeep",
     category: "Personal",
-    desc: "My personal website documenting the journey from QA Automation Engineer to AI Builder and aspiring entrepreneur.",
+    desc: "My personal website documenting the journey from QA Automation Engineer to AI Technology and aspiring entrepreneur.",
     image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200&h=800&fit=crop&auto=format",
     tags: ["React", "Vite", "GitHub Pages", "TypeScript"],
     color: "from-violet-500/20 to-purple-600/20",
