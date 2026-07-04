@@ -1,4 +1,14 @@
 export const blogPosts = [
+    {
+    slug: "claude-artifacts-building",
+    title: "Claude Artifacts and the End of the Prototype Bottleneck",
+    excerpt: "Claude Artifacts collapse the distance between describing a tool and having it. What that means for builders, founders, and automation architects.",
+    date: "2026-07-04",
+    readTime: "11 min",
+    tags: ["AI Builder", "Automation", "Claude", "Prototyping"],
+    category: "AI Builder Notes",
+    emoji: "🧩",
+  },
   {
     slug: "governing-agentic-ai",
     title: "Governing Agentic AI: Workflows, Orchestration, and Integration Frameworks",

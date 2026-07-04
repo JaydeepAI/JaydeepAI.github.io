@@ -17,6 +17,8 @@ import BlogIndex from "../pages/blog/BlogIndex";
 import ClaudeCodeFeaturesBlog from "../pages/blog/ClaudeCodeFeaturesBlog";
 import AIStackBlog from "../pages/blog/AIStackBlog";
 import AgenticAIBlog from "../pages/blog/AgenticAIBlog";
+import ClaudeArtifactsBlog from "../pages/blog/ClaudeArtifactsBlog";
+import BlogPostRouter from "../pages/blog/BlogPostRouter";
 
 
 export default function App() {
@@ -209,6 +211,8 @@ export default function App() {
       <Route path="/blog/claude-code-features" element={<ClaudeCodeFeaturesBlog />} />
       <Route path="/blog/ai-coding-stack" element={<AIStackBlog />} />
       <Route path="/blog/governing-agentic-ai" element={<AgenticAIBlog />} />
+      <Route path="/blog/claude-artifacts-building" element={<ClaudeArtifactsBlog />} />
+      <Route path="/blog/:slug" element={<BlogPostRouter />} />
     </Routes>
   );
 }
