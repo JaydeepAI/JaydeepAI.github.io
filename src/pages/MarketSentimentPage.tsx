@@ -1,4 +1,5 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "motion/react";
 import {
   Activity,
@@ -111,6 +112,16 @@ export default function MarketSentimentPage() {
   const data = useMarketDashboard();
   const lastUpdatedLabel = useLastUpdatedLabel(data.lastUpdated);
   const [refreshing, setRefreshing] = useState(false);
+  const [now, setNow] = useState(new Date());
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const t = setInterval(() => setNow(new Date()), 1000);
+    return () => clearInterval(t);
+  }, []);
+
+  const formatNow = (d: Date) =>
+    `${d.toLocaleTimeString(undefined, { hour: "2-digit", minute: "2-digit", hour12: true })} · ${d.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "2-digit" })}`;
 
   const handleRefresh = async () => {
     setRefreshing(true);
@@ -161,6 +172,9 @@ export default function MarketSentimentPage() {
             <div className="hidden text-xs text-[#94A3B8] sm:block">
               Updated {lastUpdatedLabel}
             </div>
+            <div className="hidden text-xs text-[#94A3B8] sm:block ml-3">
+              {formatNow(now)}
+            </div>
             <button
               onClick={handleRefresh}
               className="flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs font-medium text-white transition-colors hover:bg-white/[0.08]"
@@ -172,6 +186,12 @@ export default function MarketSentimentPage() {
                 <RefreshCw size={13} />
               </motion.span>
               Refresh
+            </button>
+            <button
+              onClick={() => navigate('/')}
+              className="hidden sm:inline-flex ml-3 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs font-medium text-white hover:bg-white/[0.08]"
+            >
+              Home
             </button>
           </div>
         </div>

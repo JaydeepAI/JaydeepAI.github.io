@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X, Moon, Sun, Code2 } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 interface HeaderProps {
   darkMode: boolean;
@@ -23,6 +23,8 @@ export function Header({ darkMode, setDarkMode }: HeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
+  const isHome = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -93,6 +95,14 @@ export function Header({ darkMode, setDarkMode }: HeaderProps) {
                 {link.label}
               </button>
             ))}
+            {isHome && (
+              <button
+                onClick={() => navigate("/market-sentiment")}
+                className="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 text-muted-foreground hover:text-foreground hover:bg-muted/60"
+              >
+                Today's Stock Market
+              </button>
+            )}
           </nav>
 
           <div className="flex items-center gap-2">
@@ -137,6 +147,14 @@ export function Header({ darkMode, setDarkMode }: HeaderProps) {
               {link.label}
             </button>
           ))}
+          {isHome && (
+            <button
+              onClick={() => { setMenuOpen(false); navigate('/market-sentiment'); }}
+              className="text-left px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/60 transition-all duration-200"
+            >
+              Today's Stock Market
+            </button>
+          )}
           <button
             onClick={() => scrollTo("#contact")}
             className="mt-2 btn-primary text-white text-sm font-semibold px-5 py-3 rounded-xl"
