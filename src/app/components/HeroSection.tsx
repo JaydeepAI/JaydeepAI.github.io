@@ -231,7 +231,7 @@ const downloadProfile = () => {
         <img
           src={jaydeepPhoto}
           alt="Jaydeep Patel"
-          className="relative w-[340px] lg:w-[420px] h-[420px] lg:h-[520px] object-cover rounded-[32px] border border-white/10 shadow-2xl opacity-80"
+          className="relative w-[340px] lg:w-[720px] h-auto max-h-[520px] object-contain rounded-[32px] border border-white/10 shadow-2xl opacity-80"
         />
 
       </div>
