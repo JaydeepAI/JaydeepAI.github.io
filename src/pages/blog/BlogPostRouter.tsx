@@ -4,6 +4,7 @@ import ClaudeCodeFeaturesBlog from "./ClaudeCodeFeaturesBlog";
 import AIStackBlog from "./AIStackBlog";
 import AgenticAIBlog from "./AgenticAIBlog";
 import ClaudeArtifactsBlog from "./ClaudeArtifactsBlog";
+import AutomationTrapBlog from "./AutomationTrapBlog";
 
 export default function BlogPostRouter() {
   const params = useParams();
@@ -18,6 +19,8 @@ export default function BlogPostRouter() {
       return <AgenticAIBlog />;
     case "claude-artifacts-building":
       return <ClaudeArtifactsBlog />;
+    case "the-automation-trap":
+      return <AutomationTrapBlog />;
     default:
       return <Navigate to="/blog" replace />;
   }

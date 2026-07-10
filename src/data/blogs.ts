@@ -1,5 +1,16 @@
 export const blogPosts = [
-    {
+  {
+    slug: "the-automation-trap",
+    title: "The Automation Trap: When Automating Everything Gets You Banned",
+    excerpt:
+      "Automation is sold as a universal good. Past a certain point, it quietly shifts cost instead of removing it — and on live platforms, it can get your accounts banned outright.",
+    date: "2026-07-11",
+    readTime: "16 min",
+    tags: ["Automation", "AI Strategy", "System Design"],
+    category: "AI Strategy",
+    emoji: "⚠️",
+  },
+  {
     slug: "claude-artifacts-building",
     title: "Claude Artifacts and the End of the Prototype Bottleneck",
     excerpt: "Claude Artifacts collapse the distance between describing a tool and having it. What that means for builders, founders, and automation architects.",
