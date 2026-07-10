@@ -22,10 +22,24 @@ export function MetricCard({ quote, index = 0 }: { quote: IndexQuote; index?: nu
     >
       <div className="flex items-start justify-between">
         <div>
-          <p className="text-xs font-medium text-[#94A3B8]">{quote.label}</p>
+          <div className="flex items-center gap-1.5">
+            <p className="text-xs font-medium text-[#94A3B8]">{quote.label}</p>
+            {quote.isLive && (
+              <span className="flex items-center gap-1 rounded-full bg-[#22C55E]/15 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wide text-[#22C55E]">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#22C55E] opacity-75" />
+                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#22C55E]" />
+                </span>
+                Live
+              </span>
+            )}
+          </div>
           <p className="mt-1 text-xl font-bold text-white">
             {quote.value.toLocaleString("en-IN", { maximumFractionDigits: 2 })}
           </p>
+          {quote.liveNote && (
+            <p className="mt-0.5 text-[10px] text-[#94A3B8]">{quote.liveNote}</p>
+          )}
         </div>
         <div
           className="flex items-center gap-1 rounded-full px-2 py-1 text-xs font-semibold"

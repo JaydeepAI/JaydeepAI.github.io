@@ -1,19 +1,17 @@
 /**
  * marketApi.ts
  * -----------------------------------------------------------------------
- * Single source of truth for all data the AI Market Sentiment Analyzer
- * needs. Every function below returns a Promise so it can be swapped for
- * a real network call later without touching any component.
+ * Data layer for the AI Market Sentiment Analyzer.
  *
- * TO GO LIVE:
- *   1. Pick real endpoints (NSE/BSE data vendor, a news API, an FII/DII
- *      data source, and an LLM endpoint for the summary/sentiment).
- *   2. Replace the body of each function with a `fetch(...)` call that
- *      returns data shaped exactly like the mock objects below.
- *   3. Nothing in the UI needs to change as long as the shape matches.
+ * LIVE DATA (as of now): USD/INR and Crude Oil are backed by a small
+ * `public/market-data.json` file that a scheduled GitHub Action
+ * refreshes from Alpha Vantage during NSE market hours (see
+ * .github/workflows/update-market-data.yml + scripts/fetch-market-data.mjs).
+ * Everything else stays on realistic mock data, exactly as before.
  *
- * All functions simulate network latency so loading/skeleton states in
- * the UI can be built and tested honestly.
+ * FALLBACK BEHAVIOUR: if market-data.json is missing, stale, unreachable,
+ * or malformed for any reason, getMarketData() silently falls back to
+ * the mock values below. The page never shows an empty/error state.
  * ------------------------------------------------------------------- */
 
 export type Trend = "up" | "down" | "flat";
@@ -26,6 +24,8 @@ export interface IndexQuote {
   changePercent: number;
   trend: Trend;
   sparkline: number[];
+  isLive?: boolean;
+  liveNote?: string;
 }
 
 export interface SectorHeat {
@@ -78,6 +78,13 @@ export interface RiskData {
   label: "Low" | "Medium" | "High";
 }
 
+interface LiveMarketFile {
+  lastUpdatedIso?: string;
+  marketOpen?: boolean;
+  usdInr?: { value: number; updatedAt: string };
+  crudeWti?: { value: number; updatedAt: string };
+}
+
 const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const randomWalk = (base: number, points = 20, volatility = 0.006) => {
@@ -93,6 +100,27 @@ const randomWalk = (base: number, points = 20, volatility = 0.006) => {
 const trendFromChange = (change: number): Trend =>
   change > 0 ? "up" : change < 0 ? "down" : "flat";
 
+// Reference "previous close" values used only to compute a %change for
+// the live figures — Alpha Vantage's free tier doesn't hand us a
+// previous-close for these endpoints without burning another request.
+const PREV_CLOSE_USDINR = 85.52;
+const PREV_CLOSE_CRUDE_INR_APPROX = 6536;
+
+/** Reads the JSON file the GitHub Action writes. Returns null on any failure. */
+async function getLiveOverrides(): Promise<LiveMarketFile | null> {
+  try {
+    const res = await fetch(`${import.meta.env.BASE_URL}market-data.json`, {
+      cache: "no-store",
+    });
+    if (!res.ok) return null;
+    const data: LiveMarketFile = await res.json();
+    if (!data || (!data.usdInr && !data.crudeWti)) return null;
+    return data;
+  } catch {
+    return null;
+  }
+}
+
 /** Core index & commodity/forex quotes shown in the Market Overview grid. */
 export async function getMarketData(): Promise<IndexQuote[]> {
   await wait(500);
@@ -107,11 +135,49 @@ export async function getMarketData(): Promise<IndexQuote[]> {
     { symbol: "CRUDE", label: "CRUDE OIL", value: 6482, change: -54, changePercent: -0.82 },
   ];
 
-  return raw.map((r) => ({
+  const quotes: IndexQuote[] = raw.map((r) => ({
     ...r,
     trend: trendFromChange(r.change),
     sparkline: randomWalk(r.value, 20),
   }));
+
+  // Try to layer in live data. If anything about this fails, the mock
+  // values above are left completely untouched.
+  const live = await getLiveOverrides();
+  if (!live) return quotes;
+
+  if (live.usdInr) {
+    const q = quotes.find((x) => x.symbol === "USDINR");
+    if (q) {
+      const change = Number((live.usdInr.value - PREV_CLOSE_USDINR).toFixed(4));
+      const changePercent = Number(((change / PREV_CLOSE_USDINR) * 100).toFixed(2));
+      q.value = live.usdInr.value;
+      q.change = change;
+      q.changePercent = changePercent;
+      q.trend = trendFromChange(change);
+      q.sparkline = randomWalk(live.usdInr.value, 20, 0.001);
+      q.isLive = true;
+    }
+  }
+
+  if (live.crudeWti) {
+    const q = quotes.find((x) => x.symbol === "CRUDE");
+    if (q) {
+      const usdInrForConversion = live.usdInr?.value ?? PREV_CLOSE_USDINR;
+      const approxInr = Number((live.crudeWti.value * usdInrForConversion).toFixed(2));
+      const change = Number((approxInr - PREV_CLOSE_CRUDE_INR_APPROX).toFixed(2));
+      const changePercent = Number(((change / PREV_CLOSE_CRUDE_INR_APPROX) * 100).toFixed(2));
+      q.value = approxInr;
+      q.change = change;
+      q.changePercent = changePercent;
+      q.trend = trendFromChange(change);
+      q.sparkline = randomWalk(approxInr, 20, 0.004);
+      q.isLive = true;
+      q.liveNote = "WTI × USD/INR, approx.";
+    }
+  }
+
+  return quotes;
 }
 
 /** Sector heatmap tiles. */
