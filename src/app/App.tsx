@@ -18,6 +18,8 @@ import ClaudeCodeFeaturesBlog from "../pages/blog/ClaudeCodeFeaturesBlog";
 import AIStackBlog from "../pages/blog/AIStackBlog";
 import AgenticAIBlog from "../pages/blog/AgenticAIBlog";
 import ClaudeArtifactsBlog from "../pages/blog/ClaudeArtifactsBlog";
+import AutomationTrapBlog from "../pages/blog/AutomationTrapBlog";
+import HiddenDangersOfAIBlog from "../pages/blog/HiddenDangersOfAIBlog";  
 import BlogPostRouter from "../pages/blog/BlogPostRouter";
 import MarketSentimentPage from "../pages/MarketSentimentPage";
 import ErrorBoundary from "./ErrorBoundary";
@@ -214,6 +216,7 @@ export default function App() {
       <Route path="/blog/ai-coding-stack" element={<AIStackBlog />} />
       <Route path="/blog/governing-agentic-ai" element={<AgenticAIBlog />} />
       <Route path="/blog/claude-artifacts-building" element={<ClaudeArtifactsBlog />} />
+      <Route path="/blog/the-automation-trap" element={<AutomationTrapBlog />} />
       <Route path="/blog/:slug" element={<BlogPostRouter />} />
       <Route path="/_debug" element={<div style={{ padding: 24, color: '#fff' }}>Route debug: OK</div>} />
       <Route

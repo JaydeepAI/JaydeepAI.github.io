@@ -5,13 +5,8 @@
   <title>Digital Jaydeep</title>
   <script>
     var l = window.location;
-    l.replace(
-      l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-      l.pathname.split('/').slice(0, 1).join('/') + '/?/' +
-      l.pathname.slice(1).replace(/&/g, '~and~') +
-      (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-      l.hash
-    );
+    var target = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + '/#' + l.pathname + l.search + l.hash;
+    l.replace(target);
   </script>
 </head>
 <body></body>

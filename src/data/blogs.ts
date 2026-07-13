@@ -1,5 +1,15 @@
 export const blogPosts = [
   {
+  slug: "hidden-dangers-of-ai",
+  title: "The Hidden Dangers and Growing Problems of AI Technology — And What We Must Do About It",
+  excerpt: "AI fails quietly — in a misread scan, a frozen account, a cloned voice — long before anyone notices. A practical look at the real risks and what to do about them.",
+  date: "2026-07-13",
+  readTime: "14 min",
+  tags: ["AI Safety", "Responsible AI", "Risk & Governance"],
+  category: "AI Safety",
+  emoji: "🛡️",
+  },
+  {
     slug: "the-automation-trap",
     title: "The Automation Trap: When Automating Everything Gets You Banned",
     excerpt:

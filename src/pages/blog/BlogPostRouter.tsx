@@ -5,6 +5,7 @@ import AIStackBlog from "./AIStackBlog";
 import AgenticAIBlog from "./AgenticAIBlog";
 import ClaudeArtifactsBlog from "./ClaudeArtifactsBlog";
 import AutomationTrapBlog from "./AutomationTrapBlog";
+import HiddenDangersOfAIBlog from "./HiddenDangersOfAIBlog";
 
 export default function BlogPostRouter() {
   const params = useParams();
@@ -21,6 +22,8 @@ export default function BlogPostRouter() {
       return <ClaudeArtifactsBlog />;
     case "the-automation-trap":
       return <AutomationTrapBlog />;
+    case "hidden-dangers-of-ai":
+      return <HiddenDangersOfAIBlog />;
     default:
       return <Navigate to="/blog" replace />;
   }
