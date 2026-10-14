@@ -31,6 +31,21 @@ import JiraBugReportsBlog from "./JiraBugReportsBlog";
 import SDETSkillsMap2026Blog from "./SDETSkillsMap2026Blog";
 import ShippingSmallAIToolBlog from "./ShippingSmallAIToolBlog";
 import AIInQATeamOfFiveBlog from "./AIInQATeamOfFiveBlog";
+import PromptInjectionTestersBlog from "./PromptInjectionTestersBlog";
+import CICDTestAutomationBlog from "./CICDTestAutomationBlog";
+import LongLogsLLMBlog from "./LongLogsLLMBlog";
+import ExploratoryTestingAIEraBlog from "./ExploratoryTestingAIEraBlog";
+import TestingRAGSystemBlog from "./TestingRAGSystemBlog";
+import QAInterviewsAIAgeBlog from "./QAInterviewsAIAgeBlog";
+import SecurityTestingBasicsBlog from "./SecurityTestingBasicsBlog";
+import AICostLiteracyBlog from "./AICostLiteracyBlog";
+import TestReportsManagersBlog from "./TestReportsManagersBlog";
+import ReviewingAICodeChecklistBlog from "./ReviewingAICodeChecklistBlog";
+import LoadTestingFunctionalTestersBlog from "./LoadTestingFunctionalTestersBlog";
+import LocalVsCloudModelsBlog from "./LocalVsCloudModelsBlog";
+import CrossBrowserTesting2026Blog from "./CrossBrowserTesting2026Blog";
+import WritingInPublicQABlog from "./WritingInPublicQABlog";
+import VibeCodingVsEngineeringBlog from "./VibeCodingVsEngineeringBlog";
 
 export default function BlogPostRouter() {
   const params = useParams();
@@ -99,6 +114,36 @@ export default function BlogPostRouter() {
       return <ShippingSmallAIToolBlog />;
     case "where-id-use-ai-in-a-qa-team-of-five":
       return <AIInQATeamOfFiveBlog />;
+    case "prompt-injection-for-testers":
+      return <PromptInjectionTestersBlog />;
+    case "ci-cd-for-test-automation-pipelines":
+      return <CICDTestAutomationBlog />;
+    case "feeding-long-logs-to-an-llm":
+      return <LongLogsLLMBlog />;
+    case "exploratory-testing-in-the-ai-era":
+      return <ExploratoryTestingAIEraBlog />;
+    case "testing-a-rag-system":
+      return <TestingRAGSystemBlog />;
+    case "qa-interviews-in-the-age-of-ai":
+      return <QAInterviewsAIAgeBlog />;
+    case "security-testing-basics-for-qa-engineers":
+      return <SecurityTestingBasicsBlog />;
+    case "ai-cost-literacy-for-engineers":
+      return <AICostLiteracyBlog />;
+    case "test-reports-managers-actually-read":
+      return <TestReportsManagersBlog />;
+    case "reviewing-ai-generated-code-a-testers-checklist":
+      return <ReviewingAICodeChecklistBlog />;
+    case "load-testing-for-functional-testers":
+      return <LoadTestingFunctionalTestersBlog />;
+    case "local-models-vs-cloud-models-for-qa":
+      return <LocalVsCloudModelsBlog />;
+    case "cross-browser-testing-in-2026":
+      return <CrossBrowserTesting2026Blog />;
+    case "writing-in-public-as-a-qa-engineer":
+      return <WritingInPublicQABlog />;
+    case "vibe-coding-vs-engineering":
+      return <VibeCodingVsEngineeringBlog />;
     default:
       return <Navigate to="/blog" replace />;
   }
