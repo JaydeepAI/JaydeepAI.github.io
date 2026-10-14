@@ -1,5 +1,15 @@
 export const blogPosts = [
   {
+    slug: "ai-generated-tests-oracle-problem",
+    title: "Your AI-Generated Tests Are Green and Still Wrong: The Oracle Problem",
+    excerpt: "AI can write a hundred passing tests before lunch. The hard part was never writing them. It is deciding what 'correct' means, and that is still your job.",
+    date: "2026-10-14",
+    readTime: "13 min",
+    tags: ["AI Testing", "Test Automation", "QA Strategy"],
+    category: "QA & Test Automation",
+    emoji: "🧪",
+  },
+  {
   slug: "hidden-dangers-of-ai",
   title: "The Hidden Dangers and Growing Problems of AI Technology — And What We Must Do About It",
   excerpt: "AI fails quietly — in a misread scan, a frozen account, a cloned voice — long before anyone notices. A practical look at the real risks and what to do about them.",

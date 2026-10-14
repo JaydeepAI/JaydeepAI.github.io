@@ -6,6 +6,7 @@ import AgenticAIBlog from "./AgenticAIBlog";
 import ClaudeArtifactsBlog from "./ClaudeArtifactsBlog";
 import AutomationTrapBlog from "./AutomationTrapBlog";
 import HiddenDangersOfAIBlog from "./HiddenDangersOfAIBlog";
+import AIGeneratedTestsOracleBlog from "./AIGeneratedTestsOracleBlog";
 
 export default function BlogPostRouter() {
   const params = useParams();
@@ -24,6 +25,8 @@ export default function BlogPostRouter() {
       return <AutomationTrapBlog />;
     case "hidden-dangers-of-ai":
       return <HiddenDangersOfAIBlog />;
+    case "ai-generated-tests-oracle-problem":
+      return <AIGeneratedTestsOracleBlog />;
     default:
       return <Navigate to="/blog" replace />;
   }
